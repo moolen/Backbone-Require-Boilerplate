@@ -30,7 +30,7 @@ body {
   position: relative;
 }
 .fr {
-  float: right;
+  float: right !important;
 }
 #header {
   width: 800px;

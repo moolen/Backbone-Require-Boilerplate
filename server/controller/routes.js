@@ -33,7 +33,6 @@ module.exports = function(app, dao, everyauth) {
 		    res.redirect('/app');
 		  } else {
 		  	req.session.loginError = "username or password is incorrect";
-		  	console.log(req.session.loginError);
 		    res.redirect('/login');
 		  }
     });

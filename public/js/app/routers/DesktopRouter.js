@@ -1,15 +1,14 @@
-// DesktopRouter.js
-// ----------------
 define([
 		"jquery", 
 		"backbone", 
 		"models/model", 
+		"views/app",
 		"views/start", 
 		"views/blog", 
 		"views/api",
 		"collections/Collection"
 	],
-    function($, Backbone, Model, Start, Blog, Api, Collection) {
+    function($, Backbone, Model, App, Start, Blog, Api, Collection) {
 
         var DesktopRouter = Backbone.Router.extend({
 
@@ -24,16 +23,16 @@ define([
 
             index: function() {
                 Backbone.Events.trigger("CloseView");
-                new Start();
+                new App();
 
             },
             blog: function() {
             	Backbone.Events.trigger("CloseView");
-	            new Blog();
+	            new App({ view : "blog" });
             },
             api: function() {
             	Backbone.Events.trigger("CloseView");
-	            new Api();
+	            new App({ view  : "api" });
             }
     
         });
