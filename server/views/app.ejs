@@ -1,0 +1,127 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ui-mobile-rendering" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ui-mobile-rendering" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ui-mobile-rendering" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js ui-mobile-rendering" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width"> 
+  <!--Detect if the browser is a mobile browser or a desktop browser and conditionally include your JavaScript --> 
+  <script>
+
+      // Mobile/Desktop Detection script
+      (function(ua, w, d, undefined) {
+
+        // App Environment
+        var production = false,
+          // Configuration object that will contain the correct prod/dev CSS and JavaScript files to load
+          config = {}
+        w.addEventListener("DOMContentLoaded", function() {
+          // Mobile/Tablet Logic
+          if((/iPhone|iPod|iPad|Android|BlackBerry|Opera Mini|IEMobile/).test(ua)) {
+            config = {
+              "dev-css": ["<%= appUrl %>css/libs/jquery.mobile.css"],
+              "prod-css": ["<%= appUrl %>css/libs/jquery.mobile.min.css"],
+              "dev-js": [{ "data-main": "<%= appUrl %>js/app/config/MobileInit.js", "src": "<%= appUrl %>js/libs/require.js" }],
+              "prod-js": ["<%= appUrl %>js/app/config/MobileInit.min.js"]
+            };
+
+          }
+
+          // Desktop Logic
+          else {
+            config = {
+              "dev-css": ["<%= appUrl %>css/libs/bootstrap.css"],
+              "prod-css": ["<%= appUrl %>css/libs/bootstrap.min.css"],
+              "dev-js": [{ "data-main": "<%= appUrl %>js/app/config/DesktopInit.js", "src": "<%= appUrl %>js/libs/require.js" }],
+              "prod-js": ["<%= appUrl %>js/app/config/DesktopInit.min.js"]
+            }
+
+          }
+
+          loadFiles(config, function() {
+
+              loadFiles({
+                "dev-css": ["<%= appUrl %>css/style.css"],
+                "prod-css": ["<%= appUrl %>css/style.min.css"]
+              });
+
+          });
+
+          function loadCSS(urls, callback) {
+
+            var x, link;
+            for(x = 0; x <= urls.length - 1; x += 1) {
+              link = d.createElement("link");
+              link.type = "text/css";
+              link.rel = "stylesheet";
+              link.href = urls[x];
+              d.querySelector("head").appendChild(link);
+            }
+
+            if(callback) callback();
+
+          }
+
+          function loadJS(files, callback) {
+            var x, script, file
+            for(x = 0; x <= files.length - 1; x += 1) {
+              file = files[x];
+              script = d.createElement('script');
+              if(((typeof file).toLowerCase()) === "object" && file["data-main"] !== undefined) {
+                script.setAttribute("data-main", file["data-main"]);
+                script.src = file.src;
+              }
+
+              else {
+                script.src = file;
+              }
+              d.body.appendChild(script);
+            }
+            if(callback) callback();
+          }
+
+          function loadFiles(obj, callback) {
+            if(production) {
+              loadCSS(obj["prod-css"], function() {
+                if(obj["prod-js"]) {
+                  loadJS(obj["prod-js"], callback);
+                }
+              });
+            }
+            else {
+              loadCSS(obj["dev-css"], function() {
+                if(obj["dev-js"]) {
+                  loadJS(obj["dev-js"], callback);
+                }
+              });
+            }
+          }
+        }, false);
+
+      })(navigator.userAgent || navigator.vendor || window.opera, window, window.document);
+
+  </script>
+</head>
+<body>
+	<div id="page-wrapper">
+		<header id="header">
+			<ul class="nav nav-pills">
+			  <li id="NavGoHome" class="active"><a href="#">Home</a></li>
+			  <li id="NavGoBlog" ><a href="#blog">Blog</a></li>
+			  <li id="NavGoAPI" ><a href="#api">API</a></li>
+			  <li class="fr" id="LogOut"><a href="/logout">Log Out</a></li>
+			</ul>
+		</header>
+		<!-- the main body -->
+		<div class="viewport-wrapper">
+			<div class="viewport"></div>
+		</div>
+		<!-- end main body -->
+		<footer id="footer"></footer>
+	</div>	
+</body>
+</html>
