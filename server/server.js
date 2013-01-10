@@ -1,32 +1,20 @@
 // DEPENDENCIES
 // ============
-var express = require("express"),
-    http = require("http"),
-    port = (process.env.PORT || 8001),
-    server = module.exports = express();
 
-// SERVER CONFIGURATION
-// ====================
-server.configure(function() {
+var express = require('express'),
+	partials = require('express-partials'),
+	expressValidator = require('express-validator'),
+	app = express(),
+	mysql = require('mysql'), 
+	everyauth = require('everyauth'),
+	dao = require('./database/mysqlConnector.js'),
+	env = require('./config/environment.js')(app, express, partials, expressValidator, dao, everyauth),
+	rou = require('./controller/routes.js')(app, dao, everyauth);
+	  
 
-  server.use(express["static"](__dirname + "/../public"));
-
-  server.use(express.errorHandler({
-
-    dumpExceptions: true,
-
-    showStack: true
-
-  }));
-
-  server.use(server.router);
-
-});
 
 // SERVER
 // ======
-
-// Start Node.js Server
-http.createServer(server).listen(port);
-
-console.log('Welcome to Backbone-Require-Boilerplate!\n\nPlease go to http://localhost:' + port + ' to start using Require.js and Backbone.js');
+app.listen(app.settings.port, "localhost");
+console.log("startet app with settings \r\n");
+console.log(app.settings);
