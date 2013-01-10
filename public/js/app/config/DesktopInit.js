@@ -45,7 +45,7 @@ require.config({
   shim: {
 
       // Twitter Bootstrap jQuery plugins
-      "bootstrap": ["jquery"],
+      //"bootstrap": ["jquery"],
 
       // jQueryUI
       "jqueryui": ["jquery"],

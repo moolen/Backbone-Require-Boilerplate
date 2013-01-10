@@ -1,0 +1,85 @@
+/* import css files */
+@import "normalize.css";
+@import "mixins.less";
+@import "tools.less";
+
+
+//############
+// Base
+//############
+body{
+	padding-top:60px;
+	font-family: helvetica, arial, sans-serif;
+}
+
+.slider{
+	width:4000px;
+	height: 100%;
+	position: absolute;
+	left: 0;
+}
+.row{
+	margin:0;
+	float: left;
+	width: 800px;
+	height: 500px;
+}
+.viewport{
+	overflow: hidden;
+	margin: 0 auto;
+	width: 800px;
+	height: 500px;
+	position: relative;
+}
+.fr{
+	float:right;
+}
+
+//############
+// Layout
+// use layout- or l-as a prefix
+//############
+
+#header{
+	width:800px;
+	margin:0 auto;
+}
+
+//############
+// Modules 
+// no prefix
+//############
+.nextBtn{
+	position: absolute;
+	bottom:0;
+	right:0;
+	z-index:1;
+}
+
+//############
+// States
+// use is- as a prefix
+//############
+
+.is-unselectable{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.is-font-small{font-size:10px;}
+.is-pointer{cursor:pointer;}
+
+
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+.fl{float:left;}
+.fr{float:right;}
+.cf:before, .cf:after { content: ""; display: table; }
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+.cl{clear:left;}
+.cr{clear:right;}
