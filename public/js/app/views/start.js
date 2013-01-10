@@ -1,5 +1,3 @@
-// LandingPage.js
-// -------
 define([
 	"jquery", 
 	"backbone",
