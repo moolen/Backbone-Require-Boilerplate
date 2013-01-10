@@ -11,7 +11,7 @@
        More info: h5bp.com/i/378 -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Backbone-Require Boilerplate</title>
+  <title></title>
   <meta name="description" content="Backbone.js and Require.js Boilerplate Library">
 
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
@@ -85,10 +85,10 @@
               loadFiles({
 
                 // Loaded when not in production mode
-                "dev-css": ["css/commonstyles.css"],
+                "dev-css": ["css/style.css"],
 
                 // Loaded when in production mode
-                "prod-css": ["css/commonstyles.min.css"]
+                "prod-css": ["css/style.min.css"]
 
               });
 
@@ -195,32 +195,20 @@
 
 </head>
 <body>
-
-  <div data-role="page">
-
-    <header data-role="header" class="navbar nav navbar-inner">
-      <h1>Backbone-Require-Boilerplate (BRB)</h1>
-    </header> <!-- /header -->
-
-    <div class="container-fluid" data-role="content">
-  
-      <div class="row-fluid">
-      
-        <div class="span12">
-
-          <div class="example"></div>
-      
-        </div>
-
-      </div>
-
-    </div>
-
-    <footer class="footer navbar navbar-fixed-bottom" data-role="footer">
-        <p>Written by <a href="https://github.com/gfranko" target="_blank">Greg Franko</a></p>
-    </footer><!-- /footer -->
-
-  </div> <!-- /page -->
-
+	<div id="page-wrapper">
+		<header id="header">
+			<ul class="nav nav-pills">
+			  <li id="NavGoHome" class="active"><a href="#">Home</a></li>
+			  <li id="NavGoBlog" ><a href="#blog">Blog</a></li>
+			  <li id="NavGoAPI" ><a href="#api">API</a></li>
+			</ul>
+		</header>
+		<!-- the main body -->
+		<div class="viewport-wrapper">
+			<div class="viewport"></div>
+		</div>
+		<!-- end main body -->
+		<footer id="footer"></footer>
+	</div>	
 </body>
 </html>

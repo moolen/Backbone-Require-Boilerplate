@@ -1,36 +1,43 @@
 // DesktopRouter.js
 // ----------------
-define(["jquery", "backbone", "models/Model", "views/View", "collections/Collection"],
-        
-    function($, Backbone, Model, View, Collection) {
+define([
+		"jquery", 
+		"backbone", 
+		"models/model", 
+		"views/start", 
+		"views/blog", 
+		"views/api",
+		"collections/Collection"
+	],
+    function($, Backbone, Model, Start, Blog, Api, Collection) {
 
         var DesktopRouter = Backbone.Router.extend({
 
             initialize: function() {
-
-                // Tells Backbone to start watching for hashchange events
                 Backbone.history.start();
-
             },
-
-            // All of your Backbone Routes (add more)
             routes: {
-                
-                // When there is no hash on the url, the home method is called
-                "": "index"
-
+                "": "index",
+                "blog" : "blog",
+                "api" : "api"
             },
 
             index: function() {
+                Backbone.Events.trigger("CloseView");
+                new Start();
 
-                // Instantiates a new view which will render the header text to the page
-                new View();
-
+            },
+            blog: function() {
+            	Backbone.Events.trigger("CloseView");
+	            new Blog();
+            },
+            api: function() {
+            	Backbone.Events.trigger("CloseView");
+	            new Api();
             }
     
         });
 
-        // Returns the DesktopRouter class
         return DesktopRouter;
 
     }
