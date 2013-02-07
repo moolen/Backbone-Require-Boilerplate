@@ -4,7 +4,7 @@ define(["jquery", "backbone", "models/Model", "text!templates/page/blog.html"],
 
         var Blog = Backbone.View.extend({
 
-            el: "body",
+            el: ".content-box",
 
             initialize: function() {
                 this.render();
@@ -18,7 +18,7 @@ define(["jquery", "backbone", "models/Model", "text!templates/page/blog.html"],
             render: function() {
 	           
                 this.template = _.template(template, {  });
-                $('.viewport').html( this.template );
+                this.$el.html( this.template );
                 $('#header li').removeClass('active');
                 $('#NavGoBlog').addClass('active');
 

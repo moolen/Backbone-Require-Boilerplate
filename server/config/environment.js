@@ -1,4 +1,4 @@
-module.exports = function(app, express, partials,  expressValidator, mysql, everyauth) {
+module.exports = function(app, express, partials,  expressValidator, mysql) {
 
     var store = new express.session.MemoryStore;
 	// config for all environments
@@ -14,21 +14,12 @@ module.exports = function(app, express, partials,  expressValidator, mysql, ever
 		app.set('view options', {pretty: true});
 		app.set('views', __dirname.replace('/config','') + '/views');
         app.use(express.static(__dirname.replace('/server/config','') +'/public'));
-        app.use(express.session({ secret: 'MasDAf$tr3eARGW5gwsE$6ghsRT', store: store }));
+        app.use(express.cookieSession({ secret : "adfq394QW35twerTW$%&ZE%$6uzR%U&erFT", path: '/', httpOnly: true, maxAge: 1000*60*60*24 }));
         app.use(app.router);
 	});
-	everyauth.password
-	  .respondToLoginSucceed( function (res, user, data) {
-	    if (user) {
-	      this.redirect(res, data.session.redirectTo)
-	    }   
-	  })
-	  .respondToRegistrationSucceed( function (res, user, data) {
-	    this.redirect(res, data.session.redirectTo)
-	  })
     // config for prod
     app.configure('production', function() {
-        console.log('Using prod env');
+        
         var appUrl = 'https://production.myapp.com',
             options = {};
         var appUrlNoSSL = 'http://apps.leanfwd.de/leibniz522013/';
@@ -50,16 +41,17 @@ module.exports = function(app, express, partials,  expressValidator, mysql, ever
         app.locals({
             appUrl : appUrl
         });
+        console.log('Using prod env');
+        console.log(appUrl);
     });
 
 
 	// config for dev
     app.configure('development', function() {
-        console.log('Using dev env');
         var appUrl = 'http://localhost:8123/',
             options = {};
         var appUrlNoSSL = 'http://localhost:8123/';
-
+        
         // db options
         dboptions = {
             user: 'root',
@@ -77,5 +69,7 @@ module.exports = function(app, express, partials,  expressValidator, mysql, ever
         app.locals({
             appUrl: appUrl,
         });
+        console.log('Using dev env\r\n');
+        console.log(appUrl);
     });
 }

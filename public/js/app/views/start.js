@@ -7,7 +7,7 @@ define([
 
         var Start = Backbone.View.extend({
 
-            el: "body",
+            el: ".content-box",
 
             initialize: function() {
 
@@ -22,7 +22,7 @@ define([
             render: function() {
 
                 this.template = _.template(template, {});
-                this.$el.find('.viewport').html(this.template);
+                this.$el.html(this.template);
                 
                 // set navi active-class
                 $('#header li').removeClass('active');

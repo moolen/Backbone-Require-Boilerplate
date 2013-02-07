@@ -5,8 +5,10 @@ define([
 	"views/start", 
 	"views/blog", 
 	"views/api",
+	"views/dashboard",
+	"views/inbox",
 	"text!templates/page/start.html"
-], function($, Backbone, Model, Start, Blog, Api, template ){
+], function($, Backbone, Model, Start, Blog, Api, Dashboard, Inbox, template ){
 
         var App = Backbone.View.extend({
 
@@ -19,26 +21,20 @@ define([
                 Backbone.Events.on( 'goBlog', this.goBlog, this );
                 Backbone.Events.on( 'goApi', this.goApi, this );
                 Backbone.Events.on( 'goStart', this.goStart, this );
+                Backbone.Events.on( 'goDashboard', this.goDashboard, this );
             },
 
             events: {
-            	"click #nextBtn" : "goFWD"
             },
 
             render: function() {
-
-                if( this.options.view == undefined ){
-                
-	                this.goStart();
-	                
-                }
-                if( this.options.view == "blog" ){
-	                this.goBlog();
-                }
-                if( this.options.view == "api" ){
-	                this.goApi();
-                }
-                
+	            switch(this.options.view) {
+		            case "blog" 		: this.goBlog(); break;
+		            case "api" 			: this.goApi(); break;
+		            case "dashboard" 	: this.goDashboard(); break;
+		            case "inbox"		: this.goInbox(); break;
+		            default 			: this.goStart(); break;
+	            }
                 return this;
 
             },
@@ -60,7 +56,13 @@ define([
             goApi : function(){
 	            new Api();
             },
-                       
+            
+            goDashboard : function(){
+	            new Dashboard();
+            },     
+            goInbox : function() {
+	            new Inbox();
+            },      
             /****************************
             *							*
             *	helper-functions  		*
@@ -70,6 +72,7 @@ define([
             
             close: function(){
 	        	Backbone.Events.off( 'CloseView', this.close, this );
+	        	$(".top-nav .left a").removeClass("active");
 		        $('#blog').remove();
 		        this.unbind();
 		        this.views = [];

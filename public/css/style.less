@@ -1,3 +1,8 @@
+/* import fonts */
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,300");
+@import url("http://fonts.googleapis.com/css?family=Playfair+Display:400,700");
+@import url("http://fonts.googleapis.com/css?family=Merriweather:400,300,700");
+
 /* import css files */
 @import "normalize.css";
 @import "mixins.less";
@@ -7,53 +12,274 @@
 //############
 // Base
 //############
+
 body{
-	padding-top:60px;
-	font-family: helvetica, arial, sans-serif;
+	background: #eee;
 }
 
-.slider{
-	width:4000px;
-	height: 100%;
-	position: absolute;
-	left: 0;
-}
-.row{
-	margin:0;
-	float: left;
-	width: 800px;
-	height: 500px;
-}
-.viewport{
-	overflow: hidden;
-	margin: 0 auto;
-	width: 800px;
-	height: 500px;
-	position: relative;
-}
-.fr{
-	float:right !important;
-}
 
 //############
 // Layout
-// use layout- or l-as a prefix
 //############
 
-#header{
-	width:800px;
+@darkgrey: #3c4147;
+@darkgreytransp: rgba(60,65,71,0.95);
+header{
+	
+	.top-nav{
+		position: relative;
+		width: 100%;
+		background: @darkgrey;
+		height:60px;
+		color: #fff;
+		box-shadow: 0px 0px 5px #333;
+		font-family: "open sans";
+	}
+	.button-right{
+		height:100%;
+		margin-right:50px;
+		font-family: "Merriweather";
+		width: 400px;
+		.btn {
+			float: right;
+			height: 98%;
+			padding: 0 20px;
+			line-height: 60px;
+			border-left: 1px solid #333;
+			background: #3c4147;
+			margin:0;
+			&:after{
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0px;
+				display: block;
+				width: 1px;
+				height: 100%;
+				background: rgba(84,84,84,0.3);
+			}
+			&:before{
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0px;
+				display: block;
+				width: 1px;
+				height: 100%;
+				background: rgba(84,84,84,0.3);
+			}
+			&:last-child{
+				border-right: 1px solid #333;
+			}
+			&:hover, &:focus{ background: rgba(84,84,84,0.3); }
+			&:active{ background: rgba(84,84,84,0.7); }
+		}
+	}
+	.logo-wrapper{
+		width: 20%;
+		margin: 0 0 0 50px;
+		font-family: "Merriweather";
+		h1{
+			margin: 0;
+			line-height: 60px;
+		}
+	}
+	.buttons-right{
+		display: inline-block;
+		margin: 0 50px 0 0;
+	}
+	hgroup{
+		background-image: url(../img/bgpttrn.jpg);
+		height:430px;
+		position: relative;
+		font-family: "Merriweather";
+		box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
+		z-index:8;
+		h1.claim{
+			margin-top:50px;
+			color: #e9e9e9;
+			text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+			text-align: center;
+			font-size: 2.5em;
+		}
+		.input-wrapper{
+			width: 525px;
+			margin:0 auto;
+			
+		}
+		input{
+			display: block;
+			width: 390px;
+			height:60px;
+			font-size: 2em;
+			color: #666;
+			padding: 0 0 0 10px;
+			border:1px solid #666; 
+		    -webkit-border-radius:5px; 
+		    -moz-border-radius:5px; 
+		    border-radius:5px; 
+		    -webkit-box-shadow:0 0 5px #666 inset; 
+		    -moz-box-shadow:0 0 5px #666 inset; 
+		    box-shadow:0 0 5px #666 inset; 
+		    text-indent:5px; 
+		}
+		button.btn{
+			width:100px;
+			height:61px;
+			top:1px;
+			font-size: 1.5em;
+			letter-spacing: 1px;
+			background-color: #2f5065;
+			margin: 0 0 0 20px;
+			border: 1px solid #233b4b;
+			color:#e9e9e9;
+			box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+			-webkit-border-radius:5px; 
+		    -moz-border-radius:5px; 
+		    border-radius:5px; 
+		}
+		button.btn:hover{
+			background-color: #223948;
+			
+		}
+	}
+}
+
+.content{
+	background: #eeeeee;
+	min-height: 400px;
+	z-index:6;
+	font-family: "Merriweather";
+	width:1024px;
 	margin:0 auto;
+	article{
+		padding:0 50px;
+		margin:50px 0;
+		.image{
+			width:280px;
+			height:215px;
+			margin:0 50px;
+			background:#666;
+		}
+		.article-heading{
+			margin-left: 50px;
+			color: #3c4147;
+			font-size: 1.7em;
+			width: 100%;
+			&.push-left{
+				margin-left:70px;
+				text-align: center;
+			}
+		}
+		p{
+			padding-right: 50px;
+		}
+	}
+	
+}
+
+footer{
+	background: #999999;
+	height: 150px;
+	box-shadow: 0 0 5px #000;
 }
 
 //############
 // Modules 
-// no prefix
 //############
-.nextBtn{
+
+
+// wrapper
+.signin-form{
+	background:@darkgrey;
+	.boxshadow();
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	padding: 25px 30px 30px;
+	width: 702px;
+	height: 60px;
+	.roundedcorner(5px);
 	position: absolute;
-	bottom:0;
-	right:0;
-	z-index:1;
+	top:75px;
+	right: 60px;
+	z-index:10;
+	display: none;
+	p{
+		float: left;
+		padding-right: 23px;
+	}
+	.btn{
+		
+	}
+}
+
+// buttons
+.btn{
+	position: relative;
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	background: #2f5065;
+	transition: background 0.1s linear;
+	-moz-transition: background 0.1s linear; /* Firefox 4 */
+	-webkit-transition: background 0.1s linear; /* Safari and Chrome */
+	-o-transition: background 0.1s linear; /* Opera */
+	border: 1px solid #233b4b;
+	margin: 1em 0;
+	&:hover, &:focus{ background: #223948; }
+	&:active{ background: #28363f; }
+}
+
+.btn-submit{
+	display: inline;
+	height: 36px;
+	.roundedcorner(5px);
+}
+
+// form stuff
+label[for]{
+	cursor: pointer;
+}
+label{
+	padding-bottom: 4px;
+	font-size: 1em;
+	line-height: 21px;
+	&.mr{
+		margin-right: 20px;
+	}
+}
+input{
+	outline: none;
+	color: #766558;
+	width: 169px;
+	padding: 8px 12px;
+	border: 1px solid #7c725f;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0 1px 1px #ebe9e3, 0 1px 0 rgba(255,255,255,.1);
+	-moz-box-shadow: inset 0 1px 1px #ebe9e3, 0 1px 0 rgba(255,255,255,.1);
+	box-shadow: inset 0 1px 1px #ebe9e3, 0 1px 0 rgba(255,255,255,.1);
+
+	&.input{
+		&.inset{
+		}
+	}
+}
+
+// rnd-module
+.arrow-up {
+	width: 0;
+	height: 0;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	border-bottom: 9px solid @darkgrey;
+	position: absolute;
+	top: -8px;
+	right: 35px;
 }
 
 //############
@@ -83,3 +309,4 @@ body{
 .cf { *zoom: 1; }
 .cl{clear:left;}
 .cr{clear:right;}
+.inline{ display: inline}
