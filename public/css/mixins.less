@@ -9,10 +9,10 @@
 	-pie-background: linear-gradient(@topcolor, @bottomcolor);
 	behavior: url(pie.htc);
 }
-.boxshadow(@color:#666, @xoffset:0, @yoffset:0, @blur:0){
-	-webkit-box-shadow: @color @xoffset @yoffset @blur;
-	-moz-box-shadow: @color @xoffset,@yoffset @blur;
-	box-shadow: @color @xoffset @yoffset @blur;
+.boxshadow(@color:#666, @xoffset:0, @yoffset:0, @blur:0, @inset:0){
+	-webkit-box-shadow: @color @xoffset @yoffset @blur @inset;
+	-moz-box-shadow: @color @xoffset,@yoffset @blur @inset;
+	box-shadow: @color @xoffset @yoffset @blur @inset;
 	behavior: url(pie.htc);
 }
 .roundedcorner (@radius: 2px){

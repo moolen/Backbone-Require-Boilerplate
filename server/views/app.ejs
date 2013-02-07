@@ -23,8 +23,7 @@
           // Mobile/Tablet Logic
           if((/iPhone|iPod|iPad|Android|BlackBerry|Opera Mini|IEMobile/).test(ua)) {
             config = {
-              "dev-css": ["<%= appUrl %>css/libs/jquery.mobile.css"],
-              "prod-css": ["<%= appUrl %>css/libs/jquery.mobile.min.css"],
+              "dev-css": ["<%= appUrl %>css/app.css"],
               "dev-js": [{ "data-main": "<%= appUrl %>js/app/config/MobileInit.js", "src": "<%= appUrl %>js/libs/require.js" }],
               "prod-js": ["<%= appUrl %>js/app/config/MobileInit.min.js"]
             };
@@ -34,8 +33,7 @@
           // Desktop Logic
           else {
             config = {
-              "dev-css": ["<%= appUrl %>css/libs/bootstrap.css"],
-              "prod-css": ["<%= appUrl %>css/libs/bootstrap.min.css"],
+              "dev-css": ["<%= appUrl %>css/app.css"],
               "dev-js": [{ "data-main": "<%= appUrl %>js/app/config/DesktopInit.js", "src": "<%= appUrl %>js/libs/require.js" }],
               "prod-js": ["<%= appUrl %>js/app/config/DesktopInit.min.js"]
             }
@@ -45,8 +43,8 @@
           loadFiles(config, function() {
 
               loadFiles({
-                "dev-css": ["<%= appUrl %>css/style.css"],
-                "prod-css": ["<%= appUrl %>css/style.min.css"]
+                "dev-css": ["<%= appUrl %>css/app.css"],
+                "prod-css": ["<%= appUrl %>css/app.min.css"]
               });
 
           });
@@ -109,17 +107,46 @@
 <body>
 	<div id="page-wrapper">
 		<header id="header">
-			<ul class="nav nav-pills">
-			  <li id="NavGoHome" class="active"><a href="#">Home</a></li>
-			  <li id="NavGoBlog" ><a href="#blog">Blog</a></li>
-			  <li id="NavGoAPI" ><a href="#api">API</a></li>
-			  <li class="fr" id="LogOut"><a href="/logout">Log Out</a></li>
-			</ul>
+			<div class="top-nav">
+			  <div class="left ">
+				  <a id="NavGoHome" class="home active" href="#">Home</a>
+				  <a id="NavGoBlog" href="#blog" class="blog" >Blog</a>
+				  <a id="NavGoAPI" href="#api" class="api">API</a>
+			  </div>
+			  <div class="right">
+				  <a id="NavGoAbout" href="#about">About</a>
+				  <span class="vertical divider"></span>
+				  <a class="fr" id="LogOut"  href="/logout">Log Out</a>
+			  </div>
+			</div>
+			<div class="app-nav-wrapper clearfix">
+				<div class="app-nav">
+				<a href="#dashboard"><span class="fontawesome-dashboard"></span>Dashboard</a>
+					<a href="#inbox"><span class="fontawesome-inbox"></span>Inbox</a>
+					<a href="#booking"><span class="fontawesome-plane"></span>Booking</a>
+					<a href="#inventory"><span class="fontawesome-table"></span>Inventory</a>
+					<a href="#listings"><span class="fontawesome-list-ul"></span>Listings</a>
+					<a href="#customers"><span class="fontawesome-group"></span>Customers</a>
+					<a href="#metrics"><span class="fontawesome-bar-chart"></span>Metrics</a>
+					<a href="#settings"><span class="fontawesome-cogs"></span>Settings</a>	
+				</div>			
+			</div>
 		</header>
 		<!-- the main body -->
 		<div class="viewport-wrapper">
+			<div class="arrow-top dashboard">&nbsp;</div>
 			<div class="viewport"></div>
 		</div>
+		<section class="content-box clearfix">
+			<h3>Test123 12 3</h3>
+			<p>Lorizzle ipsizzle dope i'm in the shizzle amizzle, doggy away black. Nullam sapien velizzle, ma nizzle volutpizzle, suscipizzle izzle, gravida vizzle, i'm in the shizzle. Pellentesque ass tortor. Gangsta erizzle. Fusce at phat dapibizzle turpis tempus shizzlin dizzle. Mauris dope nibh et turpizzle. My shizz in tortor. Pellentesque bow wow wow rhoncizzle ma nizzle. Pot the bizzle habitasse doggy dictumst. Fizzle dapibizzle. Curabitur tellus i saw beyonces tizzles and my pizzle went crizzle, pretizzle away, mattizzle you son of a bizzle, eleifend vitae, nunc. For sure rizzle. Integer sempizzle velit sizzle purizzle.
+
+Etizzle a magna black augue hendrerit accumsizzle. Daahng dawg izzle est. Vivamizzle shiznit da bomb, fo shizzle vitae, bow wow wow izzle, fizzle izzle, erizzle. Vestibulum ante pizzle crazy izzle dizzle mammasay mammasa mamma oo sa shiznit phat fo posuere cubilia Curae; Donizzle fo. Ghetto faucibizzle. Uhuh ... yih! pharetra bow wow wow quam. Yo mamma rutrizzle owned check out this. Sizzle facilisizzle. My shizz dope nulla, boom shackalack eu, scelerisque boom shackalack, blandit ac, magna.
+
+Yo mamma nizzle turpis boofron mah nizzle bibendizzle fo shizzle. Vivamus the bizzle tortizzle vel sure. Quisque go to hizzle crazy magna. Shut the shizzle up commodo, nisl nizzle shizznit egestizzle, magna bow wow wow vestibulum ligula, fo shizzle my nizzle auctizzle shit dolor cool augue. Sheezy id go to hizzle sizzle amizzle erizzle adipiscing fo shizzle. Vivamus tempor pede izzle gizzle. In rhoncizzle nonummy leo. Lorizzle boom shackalack mofo sit amizzle, consectetizzle fizzle sure. Daahng dawg nisi ligula, posuere sizzle amet, facilisizzle rizzle, gizzle mattizzle, libero. Curabitur sempizzle faucibizzle shut the shizzle up. Away nizzle leo. Nunc sed risizzle a dawg fo shizzle egestas. Quisque go to hizzle metizzle boom shackalack check it out. Aenizzle sodales, shit quis varius crackalackin, lectizzle diam commodo that's the shizzle, nizzle ullamcorpizzle stuff nisl quis nisi. Brizzle black quizzle, doggy sit break yo neck, yall, ornare yo mamma, get down get down pulvinar, felis.
+
+ante yippiyo that's the shizzle in uhuh ... yih! orci luctus et ultricizzle posuere uhuh ... yih! Curae; Sizzle sheezy nulla quis owned bow wow wow aliquam. Fizzle euismizzle erat. Brizzle volutp</p>
+		</section>
 		<!-- end main body -->
 		<footer id="footer"></footer>
 	</div>	

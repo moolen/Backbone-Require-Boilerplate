@@ -6,7 +6,7 @@ define(["jquery", "backbone", "models/Model", "text!templates/page/api.html"],
 
         var Api = Backbone.View.extend({
 
-            el: "body",
+            el: ".content-box",
 
             initialize: function() {
                 this.render();
@@ -21,7 +21,7 @@ define(["jquery", "backbone", "models/Model", "text!templates/page/api.html"],
 
                 this.template = _.template(template, {});
 
-                $('.viewport').html( this.template );
+                this.$el.html( this.template );
                 $('header li').removeClass('active');
                 $('#NavGoAPI').addClass('active');
                 // Maintains chainability

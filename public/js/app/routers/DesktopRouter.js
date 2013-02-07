@@ -6,9 +6,11 @@ define([
 		"views/start", 
 		"views/blog", 
 		"views/api",
+		"views/dashboard",
+		"views/inbox",
 		"collections/Collection"
 	],
-    function($, Backbone, Model, App, Start, Blog, Api, Collection) {
+    function($, Backbone, Model, App, Start, Blog, Api, Dashboard, Collection) {
 
         var DesktopRouter = Backbone.Router.extend({
 
@@ -18,7 +20,9 @@ define([
             routes: {
                 "": "index",
                 "blog" : "blog",
-                "api" : "api"
+                "api" : "api",
+                "dashboard" : "dashboard",
+                "inbox" : "inbox"
             },
 
             index: function() {
@@ -33,6 +37,14 @@ define([
             api: function() {
             	Backbone.Events.trigger("CloseView");
 	            new App({ view  : "api" });
+            },
+            dashboard: function() {
+	            Backbone.Events.trigger("CloseView");
+	            new App({ view : "dashboard" });
+            },
+            inbox: function(){
+	            Backbone.Events.trigger("CloseView");
+	            new App({ view : "inbox" });
             }
     
         });
