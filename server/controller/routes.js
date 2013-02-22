@@ -9,7 +9,14 @@ var http = require('http'),
 module.exports = function(app, dao, everyauth) {
 	
 	app.get("/", function(req, res, next) {
-		res.redirect("/app");
+		
+    	//if( req.session.user_id != undefined ){
+	    	res.render("app", { layout : false } );
+    	//}else{
+	    	//res.redirect("/login");
+    	//}
+
+		//res.redirect("/app");
 	});
 
     app.get("/app", function(req, res, next){

@@ -5,6 +5,8 @@
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:300");
 
 @import url("http://fonts.googleapis.com/css?family=Merriweather:400,700");
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
 /* fontawesome */
 [class*="fontawesome-"]:before {
   font-family: 'FontAwesome', sans-serif;
@@ -20,7 +22,7 @@
  /------------Typo-----------/
 /--------------------------*/
 body {
-  font-family: "Open Sans";
+  font-family: "PT Sans";
   background: url("../img/paper_fibers.png") 0 0 repeat;
 }
 h1 {
@@ -43,7 +45,7 @@ h5,
 h6 {
   font-weight: 100;
   color: "#666666";
-  font-family: "Open Sans";
+  font-family: "PT Sans";
 }
 h1.thin,
 h2.thin,
@@ -51,7 +53,7 @@ h3.thin,
 h4.thin,
 h5.thin,
 h6.thin {
-  font-family: "Open Sans";
+  font-family: "PT Sans";
   font-weight: 300;
   color: #5d5d5d;
 }
