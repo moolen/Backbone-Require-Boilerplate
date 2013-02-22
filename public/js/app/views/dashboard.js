@@ -1,9 +1,9 @@
 define([
 	"jquery", 
 	"backbone",
-	"models/Model", 
+	"models/model", 
 	"text!templates/page/dashboard.html"
-], function($, Backbone, Model, template ){
+], function($, Backbone, model, template ){
 
         var Dashboard = Backbone.View.extend({
 

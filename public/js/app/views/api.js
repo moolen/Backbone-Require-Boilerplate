@@ -1,8 +1,8 @@
 // SomeWhereElse.js
 // -------
-define(["jquery", "backbone", "models/Model", "text!templates/page/api.html"],
+define(["jquery", "backbone", "models/model", "text!templates/page/api.html"],
 
-    function($, Backbone, Model, template){
+    function($, Backbone, model, template){
 
         var Api = Backbone.View.extend({
 

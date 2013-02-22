@@ -1,9 +1,9 @@
 define([
 	"jquery", 
 	"backbone",
-	"models/Model", 
+	"models/model", 
 	"text!templates/page/start.html"
-], function($, Backbone, Model, template ){
+], function($, Backbone, model, template ){
 
         var Start = Backbone.View.extend({
 

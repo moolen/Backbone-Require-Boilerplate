@@ -1,14 +1,14 @@
 define([
 	"jquery", 
 	"backbone",
-	"models/Model", 
+	"models/model", 
 	"views/start", 
 	"views/blog", 
 	"views/api",
 	"views/dashboard",
 	"views/inbox",
 	"text!templates/page/start.html"
-], function($, Backbone, Model, Start, Blog, Api, Dashboard, Inbox, template ){
+], function($, Backbone, model, Start, Blog, Api, Dashboard, Inbox, template ){
 
         var App = Backbone.View.extend({
 
