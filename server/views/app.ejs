@@ -24,9 +24,9 @@
           // Mobile/Tablet Logic
           if((/iPhone|iPod|iPad|Android|BlackBerry|Opera Mini|IEMobile/).test(ua)) {
             config = {
-              "dev-css": ["<%= appUrl %>css/app.css"],
-              "dev-js": [{ "data-main": "<%= appUrl %>js/app/config/MobileInit.js", "src": "<%= appUrl %>js/libs/require.js" }],
-              "prod-js": ["<%= appUrl %>js/app/config/MobileInit.min.js"]
+              "dev-css": ["css/app.css"],
+              "dev-js": [{ "data-main": "js/app/config/MobileInit.js", "src": "js/libs/require.js" }],
+              "prod-js": ["js/app/config/MobileInit.min.js"]
             };
 
           }
@@ -34,9 +34,9 @@
           // Desktop Logic
           else {
             config = {
-              "dev-css": ["<%= appUrl %>css/app.css"],
-              "dev-js": [{ "data-main": "<%= appUrl %>js/app/config/DesktopInit.js", "src": "<%= appUrl %>js/libs/require.js" }],
-              "prod-js": ["<%= appUrl %>js/app/config/DesktopInit.min.js"]
+              "dev-css": ["css/app.css"],
+              "dev-js": [{ "data-main": "js/app/config/DesktopInit.js", "src": "js/libs/require.js" }],
+              "prod-js": ["js/app/config/DesktopInit.min.js"]
             }
 
           }
@@ -44,8 +44,8 @@
           loadFiles(config, function() {
 
               loadFiles({
-                "dev-css": ["<%= appUrl %>css/app.css"],
-                "prod-css": ["<%= appUrl %>css/app.min.css"]
+                "dev-css": ["css/app.css"],
+                "prod-css": ["css/app.min.css"]
               });
 
           });
