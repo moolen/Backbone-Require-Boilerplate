@@ -28,7 +28,6 @@ define([
             index: function() {
                 Backbone.Events.trigger("CloseView");
                 new App();
-
             },
             blog: function() {
             	Backbone.Events.trigger("CloseView");

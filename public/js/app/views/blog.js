@@ -1,6 +1,6 @@
-define(["jquery", "backbone", "models/Model", "text!templates/page/blog.html"],
+define(["jquery", "backbone", "models/model", "text!templates/page/blog.html"],
 
-    function($, Backbone, Model, template){
+    function($, Backbone, model, template){
 
         var Blog = Backbone.View.extend({
 

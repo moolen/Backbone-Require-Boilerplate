@@ -9,99 +9,12 @@
   <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width"> 
-  <script>
-
-      // Mobile/Desktop Detection script
-      (function(ua, w, d, undefined) {
-
-        // App Environment
-        var production = false,
-          // Configuration object that will contain the correct prod/dev CSS and JavaScript files to load
-          config = {}
-        w.addEventListener("DOMContentLoaded", function() {
-          // Mobile/Tablet Logic
-          if((/iPhone|iPod|iPad|Android|BlackBerry|Opera Mini|IEMobile/).test(ua)) {
-            config = {
-              "dev-css": ["<%= appUrl %>css/libs/jquery.mobile.css"],
-              "prod-css": ["<%= appUrl %>css/libs/jquery.mobile.min.css"]
-            };
-
-          }
-
-          // Desktop Logic
-          else {
-            config = {
-              "dev-css": ["<%= appUrl %>css/libs/bootstrap.css"],
-              "prod-css": ["<%= appUrl %>css/libs/bootstrap.min.css"]
-            }
-
-          }
-
-          loadFiles(config, function() {
-
-              loadFiles({
-              });
-
-          });
-
-          function loadCSS(urls, callback) {
-
-            var x, link;
-            for(x = 0; x <= urls.length - 1; x += 1) {
-              link = d.createElement("link");
-              link.type = "text/css";
-              link.rel = "stylesheet";
-              link.href = urls[x];
-              d.querySelector("head").appendChild(link);
-            }
-
-            if(callback) callback();
-
-          }
-
-          function loadJS(files, callback) {
-            var x, script, file
-            for(x = 0; x <= files.length - 1; x += 1) {
-              file = files[x];
-              script = d.createElement('script');
-              if(((typeof file).toLowerCase()) === "object" && file["data-main"] !== undefined) {
-                script.setAttribute("data-main", file["data-main"]);
-                script.src = file.src;
-              }
-
-              else {
-                script.src = file;
-              }
-              d.body.appendChild(script);
-            }
-            if(callback) callback();
-          }
-
-          function loadFiles(obj, callback) {
-            if(production) {
-              loadCSS(obj["prod-css"], function() {
-                if(obj["prod-js"]) {
-                  loadJS(obj["prod-js"], callback);
-                }
-              });
-            }
-            else {
-              loadCSS(obj["dev-css"], function() {
-                if(obj["dev-js"]) {
-                  loadJS(obj["dev-js"], callback);
-                }
-              });
-            }
-          }
-        }, false);
-
-      })(navigator.userAgent || navigator.vendor || window.opera, window, window.document);
-
-  </script>
   <style type="text/css">
+  	  @import url("http://fonts.googleapis.com/css?family=PT+Sans");
       body {
         padding:80px;
         background-color: #f5f5f5;
+        font-family: "PT Sans";
       }
       h1{
 	      font-size: 112px !important;
@@ -109,6 +22,8 @@
       }
       a{
 	      margin-left:5px;
+	      color: #abc;
+	      text-decoration: none;
       }
     </style>
 </head>
