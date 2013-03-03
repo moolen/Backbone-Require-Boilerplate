@@ -26,5 +26,12 @@
     "express": "3.x"
   },
   "main": "./server/server",
-  "keywords": ["Backbone.js", "Require.js", "Backbone and Require Boilerplate"]
+  "keywords": [
+    "Backbone.js",
+    "Require.js",
+    "Backbone and Require Boilerplate"
+  ],
+  "devDependencies": {
+    "grunt-contrib-less": "~0.5.0"
+  }
 }
