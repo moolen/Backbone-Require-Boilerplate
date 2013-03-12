@@ -10,19 +10,17 @@ define([
             el: ".content-box",
 
             initialize: function() {
-
                 this.render();
-                Backbone.Events.on( 'CloseView', this.close, this );
             },
 
             events: {
-            	"click #nextBtn" : "goFWD"
             },
 
             render: function() {
 
                 this.template = _.template(template, {});
                 this.$el.html(this.template);
+                $(".content-box").show();
                 
                 // set navi active-class
                 $('#header li').removeClass('active');
@@ -35,21 +33,8 @@ define([
                 return this;
 
             },
-            // animate slider
-            goFWD : function(e) {
-	            var left = $('.slider').css('left').replace('px','');
-	            var n = $('.row').length;
-	            //console.log(left);
-	            //console.log(n);
-	            //console.log($('.slider').queue());
-	            if( (n*800) >= (801+(-left)) && $('.slider').queue() != "inprogress" ){
-	            
-		            $('.slider').animate({ left: left - 800 + 'px'}, 800);
-	            }
-	            	
-            },
+
             close: function(){
-	        	Backbone.Events.off( 'CloseView', this.close, this );
 		        $('#blog').remove();
 		        this.unbind();
 		        this.views = [];   // Clear the view array

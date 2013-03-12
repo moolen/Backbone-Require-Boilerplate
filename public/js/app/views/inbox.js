@@ -19,7 +19,7 @@ define([
             },
 
             render: function() {
-
+	            $(".app-nav a.goinbox").addClass("active");
                 this.template = _.template(template, {});
                 this.$el.find('.viewport').html("HEELELAOSD");
                 this.$el.find(".viewport-wrapper").show();
@@ -32,6 +32,8 @@ define([
            
             close: function(){
 	        	Backbone.Events.off( 'CloseView', this.close, this );
+	        	console.log("inbox.close");
+	        	$(".app-nav a.goinbox").removeClass("active");
 	        	this.$el.find(".content-box").show();
 	        	this.$el.find(".viewport-wrapper").hide();
 		        this.unbind();

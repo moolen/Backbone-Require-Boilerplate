@@ -1,0 +1,485 @@
+<div class="viewport-nav">
+	<a href="#booking" id="goBooking"><span class="fontawesome-angle-left"></span> zur&uuml;ck</a>
+</div>
+
+<h3 class="smb">Reisevorschl&auml;ge</h3>
+
+<!-- LEFT COL-->
+<div class="left-col">
+	<h5 class="nm traveldata-heading">Ihre Reisedaten</h5>
+	<table class="traveldata">
+	<tbody class="start">
+		<tr>
+			<td>
+				<b>Start der Reise:</b>
+			</td>
+			<td class="padding-left">
+				Hauptbahnhof Stuttgart, Deutschland
+			</td>
+			<td class="padding-left">
+				am 22.3.2013
+			</td>
+		</tr>
+	</tbody>
+	<tr>
+		<td colspan="3">
+			<b>Termine:</b>
+		</td>
+	</tr>
+	<!-- Termine -->
+	<tbody class="termin">
+		<tr>
+			<td></td>
+			<td class="padding-left">Dortmunderstra&szlig;e 20,</td>
+			<td class="padding-left">22.3.2013</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="padding-left">51065 K&ouml;ln</td>
+			<td class="padding-left">13 - 15 Uhr</td>
+		</tr>
+	</tbody>
+	<tbody class="termin">
+		<tr>
+			<td></td>
+			<td class="padding-left">Berliner Platz 45, </td>
+			<td class="padding-left">23.3.2013</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="padding-left">22045 Hamburg</td>
+			<td class="padding-left">10 - 11 Uhr</td>
+		</tr>
+	</tbody>
+	<!--
+	<tbody class="termin">
+		<tr>
+			<td></td>
+			<td class="padding-left">Messe Dresden</td>
+			<td class="padding-left">22.3.2013</td>
+		</tr>
+		<tr>
+			<td>
+				
+			</td>
+			<td class="padding-left">
+				Messering 6,01067 Dresden
+			</td>
+			<td class="padding-left">
+				12 - 13 Uhr
+			</td>
+		</tr>
+	</tbody>
+		<!-- /termine -->
+	<tbody class="end">
+		<tr>
+			<td>
+				<b>Ende der Reise:</b>
+			</td>
+			<td class="padding-left">
+				Flughafen Stuttgart
+			</td>
+			<td class="padding-left">
+				am 23.03.2013
+			</td>
+		</tr>
+	</tbody>
+</table>
+	<div class="booking-options">
+		<h5 class="nm cf smb">Reiseoptionen</h5>
+		<label for="sAnzahl">Anzahl Reisende</label>
+		<select id="sAnzahl">
+			<option>1 Person</option>
+			<option>2 Personen</option>
+			<option>3 Personen</option>
+			<option>4 Personen</option>
+			<option>5 Personen</option>
+		</select>
+		<label for="sBahncard">Bahncard</label>
+		<select id="sBahncard">
+			<option>Bahncard 25 - 1.Klasse</option>
+			<option>Bahncard 25 - 2.Klasse</option>
+			<option>Bahncard 50 - 1.Klasse</option>
+			<option>Bahncard 50 - 2.Klasse</option>
+		</select>
+		
+	</div>
+</div>
+<!-- end LEFT COL -->
+
+<!-- RIGHT COL-->
+<div class="right-col">
+	<!-- Filter -->
+	<div class="booking-filter collapsed">
+		<div class="filter" data="duration">
+			<h6 class="nm">Reisedauer</h6>
+			<div class="slider"></div>
+			<div class="descr">
+				Max. <span class="value"></span> Stunden
+			</div>
+		</div>
+		<div class="filter" data="price">
+			<h6 class="nm">Preis</h6>
+			<div class="slider"></div>
+			<div class="descr">
+				Bis <span class="value"></span> &euro;
+			</div>
+		</div>
+		<div class="filter" data="stops">
+			<h6 class="nm">Stopps / Umsteigen</h6>
+			<div class="slider"></div>
+			<div class="descr">
+				Max. <span class="value"></span> Stopps
+			</div>
+		</div>
+		<div class="filter">
+			<h6 class="nm">Fluglinien</h6>
+			<input type="checkbox" class="fl" checked="checked" name="lufthansa" id="lufthansa" /><label class="fl" for="lufthansa">Lufthansa</label>
+			<input type="checkbox" class="fl cf" checked="checked" name="ryanair" id="ryanair" /><label class="fl" for="ryanair">Ryanair</label>
+			<input type="checkbox" class="fl cf" checked="checked" name="germanwings" id="germanwings" /><label class="fl" for="germanwings">Germanwings</label>
+		</div>
+		<div class="cf"></div>
+	</div>
+	<!-- end Filter -->
+</div>
+<!-- end RIGHT COL-->
+<div class="cf"></div>
+<!-- booking compare item -->
+<h5 class="nm cf">Option #1</h5>
+<div class="booking-compare-item">
+	<div class="graph-wrapper">
+		<div class="bahn">
+			<div class="descr">Bahn</div>
+			<div class="content">
+				<div class="block blue size-10p">
+					<div class="caption">2,25&nbsp;h<span class="arrow-bottom"></span></div>
+				</div>
+				<div class="block blue size-15p shift-20p">
+					<div class="caption">4&nbsp;h<span class="arrow-bottom"></span></div>
+				</div>
+			</div>
+		</div>
+		<div class="flug">
+			<div class="descr">Flug</div>
+			<div class="content">
+				<div class="block green size-15p shift-75p">
+					<div class="caption">1&nbsp;h<span class="arrow-bottom"></span></div>
+				</div>
+			</div>
+		</div>
+		<div class="taxi">
+			<div class="descr">Taxi</div>
+			<div class="content">
+				<div class="block red size-5p shift-10p">
+					<div class="caption">15&nbsp;min<span class="arrow-bottom"></span></div>
+				</div>
+				<div class="block red size-5p shift-10p">
+					<div class="caption">15&nbsp;min<span class="arrow-bottom"></span></div>
+				</div>
+				<div class="block red size-5p shift-15p">
+					<div class="caption">15&nbsp;min<span class="arrow-bottom"></span></div>
+				</div>
+				<div class="block red size-5p shift-5p">
+					<div class="caption">15&nbsp;min<span class="arrow-bottom"></span></div>
+				</div>
+				<div class="block red size-5p shift-10p">
+					<div class="caption">15&nbsp;min<span class="arrow-bottom"></span></div>
+				</div>
+			</div>
+		</div>
+		<div class="termine">
+			<div class="descr">Termin</div>
+			<div class="content">
+				<div class="block grey size-10p shift-15p">
+					<div class="caption">2,25&nbsp;h<span class="arrow-bottom"></span></div>
+				</div>
+				<div class="block grey size-10p shift-35p">
+					<div class="caption">1&nbsp;h<span class="arrow-bottom"></span></div>
+				</div>
+			</div>
+		</div>
+		<div class="uebernachtung">
+			<div class="descr">&Uuml;bernachtung</div>
+			<div class="content">
+				<div class="block yellow size-5p shift-50p">
+				</div>
+			</div>
+		</div>
+		
+		<div class="vertical-divider pos-10"></div>
+		<div class="vertical-divider pos-30"></div>
+		<div class="vertical-divider pos-45"></div>
+		<div class="vertical-divider pos-75"></div>
+		
+	</div><!-- end graph wrapper -->
+	<div class="city-indicator">
+		<span class="first pos-10">K&ouml;ln</span>
+		<span class="second pos-45">Hamburg</span>
+	</div>
+	<div class="slide-content">
+			<table class="connections">
+				<thead>
+					<tr>
+						<th>Verkehrsmittel</th>
+						<th>Abfahrt</th>
+						<th>Ankunft</th>
+						<th>Dauer</th>
+						<th>Preis</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Bahn</td>
+						<td>Stuttgart Hbf, 12:16 Uhr</td>
+						<td>K&ouml;ln Hbf, 14:30 Uhr</td>
+						<td>2 Stunden 14 Minuten</td>
+						<td>102 &euro;</td>
+						<td><span class="fontawesome-edit"></span>
+							<span class="fontawesome-ban-circle"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Taxi</td>
+						<td>K&ouml;ln Hbf</td>
+						<td>Dortmunderstra&szlig;e 20, 51145 K&ouml;ln</td>
+						<td>ca. 15 Minuten</td>
+						<td>25 &euro;</td>
+						<td><span class="fontawesome-edit"></span>
+							<span class="fontawesome-ban-circle"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Termin</td>
+						<td colspan="2">mit Herrn Asdf Querty</td>
+						<td>13:00 - 15:00 Uhr</td>
+						<td></td>
+						<td><span class="fontawesome-edit"></span>
+							<span class="fontawesome-ban-circle"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Taxi</td>
+						<td>Dortmunder Stra&szlig;e 20, 51145 K&ouml;ln</td>
+						<td>K&ouml;ln Hbf</td>
+						<td>15 - 30 Minuten</td>
+						<td>25 &euro;</td>
+						<td><span class="fontawesome-edit"></span>
+							<span class="fontawesome-ban-circle"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Bahn</td>
+						<td>K&ouml;ln Hbf</td>
+						<td>Hamburg Hbf</td>
+						<td>4 Stunden 5 Minuten</td>
+						<td>92 &euro;</td>
+						<td>
+							<span class="fontawesome-edit"></span>
+							<span class="fontawesome-ban-circle"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Taxi</td>
+						<td>Hamburg Hbf</td>
+						<td>Novotel Alster, Hamburg</td>
+						<td>7 Minuten</td>
+						<td>11 &euro;</td>
+						<td><span class="fontawesome-edit"></span>
+							<span class="fontawesome-ban-circle"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Hotel</td>
+						<td>Novotel Alster, Hamburg</td>
+						<td>**** - Kategorie</td>
+						<td></td>
+						<td>120 &euro;</td>
+						<td><span class="fontawesome-edit"></span>
+							<span class="fontawesome-ban-circle"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Taxi</td>
+						<td>Novotel Alster, Hamburg</td>
+						<td>Berliner Platz 45, 22045 Hamburg</td>
+						<td>15 Minuten</td>
+						<td>22 &euro;</td>
+						<td><span class="fontawesome-edit"></span>
+							<span class="fontawesome-ban-circle"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Termin</td>
+						<td colspan="2">mit Herrn Querty Asdf</td>
+						<td>10:00 - 11:00 Uhr</td>
+						<td></td>
+						<td><span class="fontawesome-edit"></span>
+							<span class="fontawesome-ban-circle"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Taxi</td>
+						<td>Berliner Platz 45, 22045 Hamburg</td>
+						<td>Flughafen Hamburg</td>
+						<td>25 Minuten</td>
+						<td>30 &euro;</td>
+						<td><span class="fontawesome-edit"></span>
+							<span class="fontawesome-ban-circle"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Flug</td>
+						<td>Flughafen Hamburg</td>
+						<td>Flughafen Stuttgart</td>
+						<td>1 Stunde 10 Minuten</td>
+						<td>95 &euro;</td>
+						<td><span class="fontawesome-edit"></span>
+							<span class="fontawesome-ban-circle"></span>
+						</td>
+					</tr>
+					<tr class="summe table-divider">
+						<td colspan="6">&nbsp;</td>
+					</tr>
+					<tr class="summe">
+						<td colspan="3"></td>
+						<td>Summe:</td>
+						<td>409 &euro;</td>
+						<td></td>
+					</tr>
+					<tr class="summe">
+						<td colspan="3"></td>
+						<td>Summe (inkl. Taxen):</td>
+						<td>512 &euro;</td>
+						<td></td>
+					</tr>
+					<tr class="summe">
+						<td colspan="6">&nbsp;</td>
+					</tr>
+					<!--
+					<tr class="summe">
+						<td colspan="3"></td>
+						<td>Bahnfahrten:</td>
+						<td>194 &euro;</td>
+						<td></td>
+					</tr>
+					<tr class="summe">
+						<td colspan="3"></td>
+						<td>Fl&uuml;ge:</td>
+						<td>95 &euro;</td>
+						<td></td>
+					</tr>
+					<tr class="summe">
+						<td colspan="3"></td>
+						<td>Hotels:</td>
+						<td>120 &euro;</td>
+						<td></td>
+					</tr>
+					<tr class="summe">
+						<td colspan="3"></td>
+						<td>Taxifahrten:</td>
+						<td>112 &euro;</td>
+						<td></td>
+					</tr>
+					-->
+				</tbody>
+			</table>
+			
+			<div class="cf"></div>
+		</div>
+	<div class="details">
+		<span class="slide-down fontawesome-chevron-down"></span>
+	</div>
+</div>
+<button class="btn blue fr cf goFinishBooking">buchen<span class="fontawesome-chevron-right"></span></button>
+<!-- end booking compare item -->
+
+<h5 class="nm cf">Option #2</h5>
+<div class="booking-compare-item">
+	<div class="graph-wrapper">
+		<div class="bahn">
+			<div class="descr">Bahn</div>
+			<div class="content">
+				<div class="block blue size-50p">
+					<div class="caption">4,2 h<span class="arrow-bottom"></span></div>
+				</div>
+			</div>
+		</div>
+		<div class="flug">
+			<div class="descr">Flug</div>
+			<div class="content">
+				<div class="block green size-10p shift-50p">
+					<div class="caption">1,2 h<span class="arrow-bottom"></span></div>
+				</div>
+			</div>
+		</div>
+		<div class="taxi">
+			<div class="descr">Taxi</div>
+			<div class="content">
+				<div class="block grey size-40p shift-60p">
+					<div class="caption">3,2 h<span class="arrow-bottom"></span></div>
+				</div>
+			</div>
+		</div>
+		<!--<div class="vertical-divider pos-50"></div>
+		<div class="vertical-divider pos-60"></div>
+		-->
+	</div>
+	<div class="slide-content">
+			<p>I dunno. They put us in different boxcars, and sent U.S to The Greenville Slave Auction. She got sold two days 'fore me. But don't know who to. Stephen, you're amazing. I haven't finished a drink in this house in twenty years. Can I ask you two gentlemen to look over your shoulder? Then keep ya damn eyeballs off me! Flash that bad look at me again, I'll give ya reason not to like me!</p>
+
+			<p>I don't see why not. Stephen, when you get through showing them to their rooms, go fetch Hildi. I want her cleaned up and smellin' nice, and sent over to Dr.Schultz's room. You know Mr.Woody, I'm beginning to think that you don't trust my judgement? We're having rhubarb pie, what sort of melodrama could be brewing back there? Django isn't a slave. Django is a free man. Do you understand? You're not to treat him like any of these other niggers around here, cause he ain't like any of these other niggers around here. Ya got it?</p>
+			
+			<p>You know Monsieur Candle, the doctor might be interested in seein' Hildi's peeled back. Seein' as he don't see many niggers where he from. You know Monsieur Candle, the doctor might be interested in seein' Hildi's peeled back. Seein' as he don't see many niggers where he from. All ready for your guest and his nigger. Snowballs just makin' sure his talking stick is all nice and FROSTY.</p>
+		</div>
+	<div class="details">
+		<span class="slide-down fontawesome-chevron-down"></span>
+	</div>
+</div>
+<button class="btn blue fr cf goFinishBooking">buchen<span class="fontawesome-chevron-right"></span></button>
+<!-- end booking compare item -->
+<h5 class="nm cf">Option #3</h5>
+<div class="booking-compare-item">
+	<div class="graph-wrapper">
+		<div class="bahn">
+			<div class="descr">Bahn</div>
+			<div class="content">
+				<div class="block blue size-50p">
+					<div class="caption">4,2 h<span class="arrow-bottom"></span></div>
+				</div>
+			</div>
+		</div>
+		<div class="flug">
+			<div class="descr">Flug</div>
+			<div class="content">
+				<div class="block green size-10p shift-50p">
+					<div class="caption">1,2 h<span class="arrow-bottom"></span></div>
+				</div>
+			</div>
+		</div>
+		<div class="taxi">
+			<div class="descr">Taxi</div>
+			<div class="content">
+				<div class="block grey size-40p shift-60p">
+					<div class="caption">3,2 h<span class="arrow-bottom"></span></div>
+				</div>
+			</div>
+		</div>
+		<!--<div class="vertical-divider pos-50"></div>
+		<div class="vertical-divider pos-60"></div>
+		-->
+	</div>
+	<div class="slide-content">
+		<p>I dunno. They put us in different boxcars, and sent U.S to The Greenville Slave Auction. She got sold two days 'fore me. But don't know who to. Stephen, you're amazing. I haven't finished a drink in this house in twenty years. Can I ask you two gentlemen to look over your shoulder? Then keep ya damn eyeballs off me! Flash that bad look at me again, I'll give ya reason not to like me!</p>
+
+		<p>I don't see why not. Stephen, when you get through showing them to their rooms, go fetch Hildi. I want her cleaned up and smellin' nice, and sent over to Dr.Schultz's room. You know Mr.Woody, I'm beginning to think that you don't trust my judgement? We're having rhubarb pie, what sort of melodrama could be brewing back there? Django isn't a slave. Django is a free man. Do you understand? You're not to treat him like any of these other niggers around here, cause he ain't like any of these other niggers around here. Ya got it?</p>
+		
+		<p>You know Monsieur Candle, the doctor might be interested in seein' Hildi's peeled back. Seein' as he don't see many niggers where he from. You know Monsieur Candle, the doctor might be interested in seein' Hildi's peeled back. Seein' as he don't see many niggers where he from. All ready for your guest and his nigger. Snowballs just makin' sure his talking stick is all nice and FROSTY.</p>
+	</div>
+	<div class="details">
+		<span class="slide-down fontawesome-chevron-down"></span>
+	</div>
+</div>
+<button class="btn blue fr cf goFinishBooking">buchen<span class="fontawesome-chevron-right"></span></button>
+<!-- end booking compare item -->
+

@@ -13,37 +13,39 @@ define([
                 Backbone.history.start();
             },
             routes: {
-                "": "index",
-                "blog" : "blog",
-                "api" : "api",
-                "dashboard" : "dashboard",
-                "inbox" : "inbox",
-                "booking" : "booking",
+                ""				: 		"index",
+                // app stuff
+                "dashboard"		: 		"dashboard",
+                "booking"		: 		"booking",
+                "inbox" 		: 		"inbox",
+                
+                // nav stuff
+                "blog" : "blog"
+                
+                
             },
 
             index: function() {
-                Backbone.Events.trigger("CloseView");
                 new App();
             },
             blog: function() {
-            	Backbone.Events.trigger("CloseView");
-	            new App({ view : "blog" });
+	            //App.goBlog();
+	            Backbone.Events.trigger( 'goBlog' );
             },
             api: function() {
-            	Backbone.Events.trigger("CloseView");
-	            new App({ view  : "api" });
+	            //App.goApi();
+	            Backbone.Events.trigger( 'goApi' );
             },
             dashboard: function() {
-	            Backbone.Events.trigger("CloseView");
-	            new App({ view : "dashboard" });
+	            //App.goDashboard();
+	            Backbone.Events.trigger( 'goDashboard' );
             },
             inbox: function(){
-	            Backbone.Events.trigger("CloseView");
-	            new App({ view : "inbox" });
+	            Backbone.Events.trigger( 'goInbox' );
             },
             booking: function(){
-                        Backbone.Events.trigger("CloseView");
-                        new App({ view: "booking"});
+                //App.goBooking();
+                Backbone.Events.trigger( 'goBooking' );
             },
     
         });

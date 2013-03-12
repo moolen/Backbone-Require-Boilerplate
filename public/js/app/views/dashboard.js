@@ -10,32 +10,33 @@ define([
             el: "body",
 
             initialize: function() {
-
+	            console.log("initializing dashboardView")
                 this.render();
-                Backbone.Events.on( 'CloseView', this.close, this );
             },
 
             events: {
             },
 
             render: function() {
+            	
 	            this.$el.find(".top-nav .left a").removeClass("active");
+	            $(".app-nav a.godashboard").addClass("active");
                 this.template = _.template(template, {});
                 this.$el.find('.viewport').html(this.template);
                 this.$el.find(".viewport-wrapper").show();
-                this.$el.find(".content-box").hide();
                 this.$el.find(".arrow-top").attr("class", "arrow-top dashboard");
-                //this.$el.find(".viewport").css("padding","0");
                 return this;
 
             },
            
             close: function(){
-	        	Backbone.Events.off( 'CloseView', this.close, this );
-	        	this.$el.find(".content-box").show();
-	        	this.$el.find(".viewport-wrapper").hide();
-		        this.unbind();
-		        this.views = [];   // Clear the view array
+	        	//Backbone.Events.trigger( 'CloseView', this.close, this );
+	        	this.$el.off();
+                //Backbone.Events.off('moveFrameRight');
+                //Backbone.Events.off('moveFrameLeft');
+                this.views = [];
+                this.unbind();
+                console.log("dashboard.close");
             }
         });
 
