@@ -30,10 +30,8 @@ define([
             },
            
             close: function(){
-	        	//Backbone.Events.trigger( 'CloseView', this.close, this );
 	        	this.$el.off();
-                //Backbone.Events.off('moveFrameRight');
-                //Backbone.Events.off('moveFrameLeft');
+	        	Backbone.Events.trigger( 'clearView');
                 this.views = [];
                 this.unbind();
                 console.log("dashboard.close");

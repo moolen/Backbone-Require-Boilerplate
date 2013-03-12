@@ -20,7 +20,8 @@ define([
                 "inbox" 		: 		"inbox",
                 
                 // nav stuff
-                "blog" : "blog"
+                "blog" 			: 		"blog",
+                "api"			: 		"api",
                 
                 
             },
@@ -29,22 +30,18 @@ define([
                 new App();
             },
             blog: function() {
-	            //App.goBlog();
 	            Backbone.Events.trigger( 'goBlog' );
             },
             api: function() {
-	            //App.goApi();
 	            Backbone.Events.trigger( 'goApi' );
             },
             dashboard: function() {
-	            //App.goDashboard();
 	            Backbone.Events.trigger( 'goDashboard' );
             },
             inbox: function(){
 	            Backbone.Events.trigger( 'goInbox' );
             },
             booking: function(){
-                //App.goBooking();
                 Backbone.Events.trigger( 'goBooking' );
             },
     

@@ -365,6 +365,9 @@ define([
            
            close: function(){
                 this.closeModal("force");
+                $(".datepicker").remove();
+                $(".pac-container").remove();
+                Backbone.Events.trigger( 'clearView');
                 this.$el.off();
                 this.unbind();
                 this.views = [];
