@@ -23,7 +23,7 @@ define([
                 $(".content-box").show();
                 
                 // set navi active-class
-                $('#header li').removeClass('active');
+                $('#header .left a').removeClass('active');
                 $('#NavGoHome').addClass('active');
                 
                 // render nextBtn
@@ -36,6 +36,7 @@ define([
 
             close: function(){
 		        $('#blog').remove();
+		        Backbone.Events.trigger( 'clearView');
 		        this.unbind();
 		        this.views = [];   // Clear the view array
             }

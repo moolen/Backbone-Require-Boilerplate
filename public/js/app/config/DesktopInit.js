@@ -48,10 +48,8 @@ require.config({
 });
 
 require(["jquery", "backbone", "routers/DesktopRouter", "jqueryui", "backbone.validateAll"],
-
   function($, Backbone, DesktopRouter) {
-
-    new DesktopRouter();
+    new DesktopRouter();    
 
   }
 

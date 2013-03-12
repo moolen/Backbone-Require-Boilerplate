@@ -10,7 +10,6 @@ define(["jquery", "backbone", "models/model", "text!templates/page/api.html"],
 
             initialize: function() {
                 this.render();
-                Backbone.Events.on( 'CloseView', this.close, this );
             },
 
             events: {
@@ -22,13 +21,13 @@ define(["jquery", "backbone", "models/model", "text!templates/page/api.html"],
                 this.template = _.template(template, {});
 
                 this.$el.html( this.template );
-                $('header li').removeClass('active');
                 $('#NavGoAPI').addClass('active');
-                // Maintains chainability
+                $(".content-box").show();
+                
                 return this;
             },
             close: function(){
-	          	Backbone.Events.off( 'CloseView', this.close, this );
+	            Backbone.Events.trigger( 'clearView');
 		        $('#api').remove();
 		        this.unbind();
 		        this.views = [];   // Clear the view array

@@ -17,9 +17,7 @@ define([
 
             initialize: function() {
 	            console.log("init App");
-	            this.currentView = null;
                 this.render(this.options);
-                
                 Backbone.Events.on( 'goBlog', this.goBlog, this );
                 Backbone.Events.on( 'goApi', this.goApi, this );
                 Backbone.Events.on( 'goStart', this.goStart, this );
@@ -29,6 +27,7 @@ define([
                 Backbone.Events.on( 'slideWindowTo', this.slideWindowTo, this );
                 Backbone.Events.on( 'moveFrameRight', this.moveFrameRight, this );
                 Backbone.Events.on( 'moveFrameLeft', this.moveFrameLeft, this );
+                Backbone.Events.on( 'clearView', this.clearView, this );
             },
 
             events: {
@@ -49,7 +48,6 @@ define([
                     case "booking"      : this.goBooking(); break;
 		            default 			: this.goStart(); break;
 	            }
-	            
                 return this;
 
             },
@@ -133,7 +131,7 @@ define([
 		            callback();
 	            }
 	            
-           },
+            },
             
             moveFrameLeft: function( HTMLtemplate, data, callback ) {
             	var d = data || {},
@@ -155,22 +153,23 @@ define([
 		            if( callback != undefined){
 			            callback();
 		            }
-           },
+            },
+            
+            clearView: function(){
+	            $(".app-nav a").removeClass("active");
+	        	$(".top-nav .left a").removeClass("active");
+                $(".viewport").children().remove();
+                $(".content-box").hide();
+	        	$(".viewport-wrapper").hide();
+            },
             
             close: function() {
             	// close AppView here.
 	        	Backbone.Events.off( 'slideWindowTo', this.slideWindowTo, this );
                 Backbone.Events.off( 'moveFrameRight', this.moveFrameRight, this );
                 Backbone.Events.off( 'moveFrameLeft', this.moveFrameLeft, this );
-                $(".datepicker").remove();
-                $(".pac-container").remove();
-                $(".app-nav a").removeClass("active");
-	        	$(".top-nav .left a").removeClass("active");
-                $(".viewport").children().remove();
-                $(".content-box").hide();
-	        	$(".viewport-wrapper").hide();
-		        //this.unbind();
-		        //this.views = [];
+                this.unbind();
+		        this.views = [];
 		        console.log("App.close");
             }
         });

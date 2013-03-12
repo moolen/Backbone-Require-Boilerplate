@@ -8,7 +8,6 @@ define(["jquery", "backbone", "models/model", "text!templates/page/blog.html"],
 
             initialize: function() {
                 this.render();
-                Backbone.Events.on( 'CloseView', this.close, this );
             },
 
             events: {
@@ -19,14 +18,14 @@ define(["jquery", "backbone", "models/model", "text!templates/page/blog.html"],
 	           
                 this.template = _.template(template, {  });
                 this.$el.html( this.template );
-                $('#header li').removeClass('active');
+                $('#header .left a').removeClass('active');
                 $('#NavGoBlog').addClass('active');
                 $(".content-box").show();
                 return this;
 
             },
             close: function(){
-	            Backbone.Events.off( 'CloseView', this.close, this );
+	             Backbone.Events.trigger( 'clearView');
 		        $('#blog').remove();
 		        this.unbind();
 		        this.views = [];   // Clear the view array
