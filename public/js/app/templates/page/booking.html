@@ -1,1 +1,67 @@
-<h2 class="thin nm">Booking</h2>
+<form>
+	<div class="grid-6-12 alpha cf">
+		<label>Start der Reise</label>
+	</div>
+	<div class="grid-6-12 alpha cf">
+		
+		<input type="text" name="start" class="googleautocomplete" placeholder="Stadt / Adresse" required="required" />
+	</div>
+	<div class="grid-3-12">
+		<input type="text" class="datepicker set_date_today" name="start_date" required="required" />
+	</div>
+
+	<fieldset class="cf" id="form_termine">
+		<div class="legend addTermin">
+			<h5 class="nm"><span class="fontawesome-plus-sign left" id="addTermin"></span>Termine</h5>
+		</div>
+		
+
+
+		<!-- TEH REPEATABLE -->
+		<div class="termin_entry first">
+			<span class="fontawesome-minus-sign left deleteTermin"></span>
+			 <div class="grid-6-12 alpha cf">
+				<input type="text" class="googleautocomplete termin_change" name="termin_1" placeholder="z.B. Dortmunderstraße 20, Köln" required>
+			</div>
+			<div class="grid-3-12">
+				<input type="text" class="datepicker set_date_today" name="termin_1_date" required="required" />
+			</div>
+			<div class="grid-3-12 omega">
+				<input type="text" class="set_time" name="termin_1_time" />
+				<div class="slider-range"></div>
+			</div>
+			<!-- -->
+			<div class="grid-3-12 alpha cf">
+				<label>Übernachtung in</label>
+			</div>
+			<div class="grid-6-12 sleep"><input type="text" class=" googleautocomplete"/></div>
+			<div class="cf"></div>
+		</div>
+		<!-- TEH REPEATABLE -->
+
+
+	</fieldset>
+	<div class="grid-6-12 alpha cf">
+		<label>Ende der Reise</label>
+	</div>
+	<div class="grid-6-12 alpha cf">
+		
+		<input type="text" name="end" class="googleautocomplete" placeholder="Stadt / Adresse" required="required" />
+	</div>
+	<div class="grid-3-12">
+		<input type="text" class="datepicker set_date_today" name="end_date" required="required" />
+	</div>
+</form>
+	<button class="btn blue huge" id="toggleExtended">
+		<span class="fontawesome-plus pre"></span>
+		<span class="descr">erweitert</span>
+	</button>
+	<div class="extended-info">
+		weitere Einstellungen: 
+		<ul>
+			<li>Bahn: 1./2. Klasse, ÖPNV statt Taxi, Anzahl Reisende, Bahncard</li>
+			<li>Flug: div. Fluglinien</li>
+		</ul>
+		
+	</div>
+	<button class="btn blue huge" id="goComparison">weiter<span class="fontawesome-chevron-right"></span></button>

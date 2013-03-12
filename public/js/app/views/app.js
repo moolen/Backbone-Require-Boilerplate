@@ -16,28 +16,40 @@ define([
             el: "body",
 
             initialize: function() {
-
-                this.render();
-                Backbone.Events.on( 'CloseView', this.close, this );
+	            console.log("init App");
+	            this.currentView = null;
+                this.render(this.options);
+                
                 Backbone.Events.on( 'goBlog', this.goBlog, this );
                 Backbone.Events.on( 'goApi', this.goApi, this );
                 Backbone.Events.on( 'goStart', this.goStart, this );
-                Backbone.Events.on('goBooking', this.goBooking, this);
+                Backbone.Events.on( 'goBooking', this.goBooking, this);
                 Backbone.Events.on( 'goDashboard', this.goDashboard, this );
+                Backbone.Events.on( 'goInbox', this.goInbox, this );
+                Backbone.Events.on( 'slideWindowTo', this.slideWindowTo, this );
+                Backbone.Events.on( 'moveFrameRight', this.moveFrameRight, this );
+                Backbone.Events.on( 'moveFrameLeft', this.moveFrameLeft, this );
             },
 
             events: {
+            	"click #godashboard" : "goDashboard",
+            	"click #gobooking" : "goBooking",
+            	"click #goinbox" : "goInbox",
+            	"click #NavGoBlog" : "goBlog",
+            	"click #NavGoApi" : "goApi",
             },
 
             render: function() {
+	            console.log(this.options);
 	            switch(this.options.view) {
 		            case "blog" 		: this.goBlog(); break;
-		            case "api" 		: this.goApi(); break;
+		            case "api" 			: this.goApi(); break;
 		            case "dashboard" 	: this.goDashboard(); break;
 		            case "inbox"		: this.goInbox(); break;
-                                      case "booking"             : this.goBooking(); break;
+                    case "booking"      : this.goBooking(); break;
 		            default 			: this.goStart(); break;
 	            }
+	            
                 return this;
 
             },
@@ -49,50 +61,121 @@ define([
             ****************************/
             
             goStart : function(){
-                         this.close();
-	            new Start();
+                this.currentView ? this.currentView.close() : null;
+	            var itemView = new Start();
+	            this.currentView = itemView;
             },
             
             goBlog : function(){
-                         this.close();
-	            new Blog();
+                this.currentView ? this.currentView.close() : null;
+	            var itemView = new Blog();
+	            this.currentView = itemView;
             },
             
             goApi : function(){
-                         this.close();
-	            new Api();
+                this.currentView ? this.currentView.close() : null;
+	            var itemView = new Api();
+	            this.currentView = itemView;
             },
             
             goDashboard : function(){
-                         this.close();
-	            new Dashboard();
+                this.currentView ? this.currentView.close() : null;
+	            var itemView = new Dashboard();
+	            this.currentView = itemView;
             },     
             goInbox : function() {
-                         this.close();
-	            new Inbox();
+                this.currentView ? this.currentView.close() : null;
+	            var itemView = new Inbox();
+	            this.currentView = itemView;
             },      
             goBooking: function(){
-                        this.close();
-                        new Booking();
+                this.currentView ? this.currentView.close() : null;
+                var itemView = new Booking();
+                this.currentView = itemView;
             },
+            
             /****************************
             *							*
-            *	helper-functions  		*
-            *	outside sub-view-scope	*				
+            *	   global-functions  	*
             *							*
             ****************************/
             
-            close: function(){
-	        	Backbone.Events.off( 'CloseView', this.close, this );
+            slideWindowTo: function($element, time, additionalOffset) {
+           		var duration = time || 350;
+           		var addOffset = -additionalOffset || -25;
+           		var offset = this.getOffset($element);
+           		
+	       		$("html, body").animate({
+		       		scrollTop: offset.top + addOffset,
+		       	}, duration);
+            },
+            
+            moveFrameRight: function( HTMLtemplate, data, callback ) {
+            
+            	var d = data || {},
+           	    	template = _.template( HTMLtemplate, d );
+           		
+           		$(".frames").append("<div class='frame-loading'>" + template + "</div>");
+	            $(".frame").animate({
+		           left: "1020px",
+		           
+	            }, 300, function(){
+	            	// animate height
+	            	var newHeight = $(".frame-loading").height();
+		           
+	            	$(".frames").animate({
+			           height: newHeight
+			           }, 500, null);
+		            $(".frame").remove();
+		            $(".frame-loading").attr("class","frame");
+	            });
+	            if( callback != undefined){
+		            callback();
+	            }
+	            
+           },
+            
+            moveFrameLeft: function( HTMLtemplate, data, callback ) {
+            	var d = data || {},
+            		template = _.template( HTMLtemplate, d );
+	           		
+	           		$(".frames").append("<div class='frame-loading'>" + template + "</div>");
+		            $(".frame").animate({
+			           left: "-1020px",
+			           
+		            }, 300, function(){
+			           // onComplete
+			           var newHeight = $(".frame-loading").height();
+			           $(".frames").animate({
+				           height: newHeight
+			           }, 500, null);
+			           $(".frame").remove();
+			           $(".frame-loading").attr("class","frame");
+		            });
+		            if( callback != undefined){
+			            callback();
+		            }
+           },
+            
+            close: function() {
+            	// close AppView here.
+	        	Backbone.Events.off( 'slideWindowTo', this.slideWindowTo, this );
+                Backbone.Events.off( 'moveFrameRight', this.moveFrameRight, this );
+                Backbone.Events.off( 'moveFrameLeft', this.moveFrameLeft, this );
+                $(".datepicker").remove();
+                $(".pac-container").remove();
+                $(".app-nav a").removeClass("active");
 	        	$(".top-nav .left a").removeClass("active");
-		        $('#blog').remove();
-		        this.unbind();
-		        this.views = [];
+                $(".viewport").children().remove();
+                $(".content-box").hide();
+	        	$(".viewport-wrapper").hide();
+		        //this.unbind();
+		        //this.views = [];
+		        console.log("App.close");
             }
         });
 
         return App;
 
     }
-
 );

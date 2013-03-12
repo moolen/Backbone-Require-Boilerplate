@@ -21,7 +21,7 @@ define(["jquery", "backbone", "models/model", "text!templates/page/blog.html"],
                 this.$el.html( this.template );
                 $('#header li').removeClass('active');
                 $('#NavGoBlog').addClass('active');
-
+                $(".content-box").show();
                 return this;
 
             },

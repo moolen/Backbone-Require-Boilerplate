@@ -1,5 +1,5 @@
-// MobileInit.js
-// -------------
+// DesktopInit.js
+// --------------
 require.config({
 
   // Sets the js folder as the base directory for all future relative paths
@@ -13,7 +13,7 @@ require.config({
       // --------------
       "jquery": "libs/jquery",
 
-      "jquerymobile": "libs/jquery.mobile",
+      "jqueryui": "libs/jqueryui",
 
       "underscore": "libs/lodash",
 
@@ -24,6 +24,8 @@ require.config({
       "backbone.validateAll": "libs/plugins/Backbone.validateAll",
 
       "text": "libs/plugins/text",
+
+      "datepicker" : "libs/datepicker",
 
       // Application Folders
       // -------------------
@@ -39,23 +41,27 @@ require.config({
 
   },
 
-  // Sets the dependency and shim configurations
-  // - Helpful for including non-AMD compatible scripts and managing dependencies
+  // Sets the configuration for your third party scripts that are not AMD compatible
   shim: {
 
-      // jQuery Mobile
-      "jquerymobile": ["jquery"],
+      // Twitter Bootstrap jQuery plugins
+      //"bootstrap": ["jquery"],
+
+      // jQueryUI
+      "jqueryui": ["jquery"],
 
       // Backbone
       "backbone": {
 
-        // Depends on underscore/lodash and jQuery
-        "deps": ["underscore", "jquery"],
+            // Depends on underscore/lodash and jQuery
+            "deps": ["underscore", "jquery"],
 
-        // Exports the global window.Backbone object
-        "exports": "Backbone"
+            // Exports the global window.Backbone object
+            "exports": "Backbone"
 
       },
+
+      "datepicker" : ["jquery"],
 
       // Backbone.validateAll plugin that depends on Backbone
       "backbone.validateAll": ["backbone"]
@@ -64,19 +70,15 @@ require.config({
 
 });
 
-// Include Desktop Specific JavaScript files here (or inside of your Desktop router)
-require(["jquery", "backbone", "routers/MobileRouter", "jquerymobile", "backbone.validateAll"],
+// Includes Desktop Specific JavaScript files here (or inside of your Desktop router)
+require(["jquery", "backbone", "routers/DesktopRouter", "jqueryui", "backbone.validateAll"],
 
-  function($, Backbone, MobileRouter) {
+  function($, Backbone, DesktopRouter) {
 
-    // Prevents all anchor click handling
-    $.mobile.linkBindingEnabled = false;
-
-    // Disabling this will prevent jQuery Mobile from handling hash changes
-    $.mobile.hashListeningEnabled = false;
-
-    // Instantiates a new Mobile Router instance
-    new MobileRouter();
+    // Instantiates a new Desktop Router instance
+    new DesktopRouter();
+    
+    // new MobileRouter();
 
   }
 

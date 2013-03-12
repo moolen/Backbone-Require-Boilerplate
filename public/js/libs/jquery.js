@@ -9470,3 +9470,23 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 }
 
 })( window );
+
+jQuery.extend( jQuery.fn, {
+    // Name of our method & one argument (the parent selector)
+    hasParent: function(p) {
+        // Returns a subset of items using jQuery.filter
+        return this.filter(function(){
+            // Return truthy/falsey based on presence in parent
+            return $(p).find(this).length;
+        });
+    },
+    hasNotParent: function(p) {
+        // Returns a subset of items using jQuery.filter
+        return !this.filter(function(){
+            // Return truthy/falsey based on presence in parent
+            return $(p).find(this).length;
+        });
+    },
+    
+    
+});
