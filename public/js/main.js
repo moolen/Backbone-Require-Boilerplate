@@ -1,7 +1,5 @@
 require.config({
 
-  baseUrl: MyApp.baseUrl,
-
   paths: {
 
       // Core Libraries
