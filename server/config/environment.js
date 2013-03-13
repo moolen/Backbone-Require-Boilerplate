@@ -20,9 +20,9 @@ module.exports = function(app, express, partials,  expressValidator, mysql) {
     // config for prod
     app.configure('production', function() {
         
-        var appUrl = 'https://production.myapp.com',
+        var appUrl = 'https://moolen.aries.uberspace.de/boilerplate/',
             options = {};
-        var appUrlNoSSL = 'http://apps.leanfwd.de/leibniz522013/';
+        var appUrlNoSSL = 'http://moolen.aries.uberspace.de/boilerplate/';
 
         // db options
         dboptions = {
