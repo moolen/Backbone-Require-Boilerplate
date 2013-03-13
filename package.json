@@ -32,6 +32,10 @@
     "Backbone and Require Boilerplate"
   ],
   "devDependencies": {
-    "grunt-contrib-less": "~0.5.0"
+    "grunt-contrib-less" : "~0.5.0",
+    "grunt-contrib-watch" : "",
+    "grunt" : "",
+    "grunt-contrib-requirejs" : "",
+    "grunt-contrib-requirejs" : ""
   }
 }
