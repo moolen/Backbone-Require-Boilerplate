@@ -54,9 +54,16 @@
 	 	MyApp.currentView = null;
 	 	MyApp.env = "<%= env %>";
 	 	MyApp.baseUrl = "<%= appUrl %>";
+	 <%	if(env == "production"){
+		 console.log = function() {}
+	 } %>
 	 </script>
-	 <%if ( env == "development" ) { %>  <script data-main="js/main.js" src="js/libs/require.js"></script> <% } %>
-	 <%if ( env == "production" ) { %> <script data-main="js/main.min.js" src="js/libs/require.min.js"></script> <% } %> 	 
+	 <%if ( env == "development" ) { %>  
+	 	<script data-main="js/main.js" src="js/libs/require.js"></script> 
+	 <% } %>
+	 <%if ( env == "production" ) { %> 
+	 	<script data-main="js/main.min.js" src="js/libs/require.min.js"></script> 
+	 <% } %> 	 
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 </body>
 </html>
