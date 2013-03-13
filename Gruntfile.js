@@ -1,10 +1,11 @@
 'use strict';
  
 module.exports = function (grunt) {
-    // load all grunt tasks
+    // load grunt tasks
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
+
     grunt.initConfig({
         watch: {
             files: "public/css/*.less",
@@ -23,7 +24,23 @@ module.exports = function (grunt) {
                 }
             },
         },
-    });
- 
-     grunt.registerTask('default', ['watch']);
+        requirejs: {
+	        dist: {
+                options: {
+                	name: "public/js/main",
+                	out: "public/js/app.min.js",
+                    baseUrl: './',
+                    optimize: 'uglify2',
+                    preserveLicenseComments: false,
+                    useStrict: true,
+                    wrap: true,
+                    //uglify2: {} // https://github.com/mishoo/UglifyJS2
+                    mainConfigFile: 'public/js/main.js'
+                }
+            }
+		},
+		        
+    }); // end init Config
+
+    grunt.registerTask('default', ['watch']);
 };
