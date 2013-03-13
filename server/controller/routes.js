@@ -11,6 +11,7 @@ module.exports = function(app, dao, everyauth) {
 	app.get("/", function(req, res, next) {
 		
     	//if( req.session.user_id != undefined ){
+    		res.setHeader("connection" : "keep-alive");
 	    	res.render("app", { layout : false, } );
     	//}else{
 	    	//res.redirect("/login");
