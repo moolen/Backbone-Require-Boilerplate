@@ -3,7 +3,7 @@ module.exports = function(app, express, partials,  expressValidator, mysql) {
     var store = new express.session.MemoryStore;
 	// config for all environments
 	app.configure(function() {
-		
+		app.use(express.compress());
         app.use(express.bodyParser());
         app.use(express.cookieParser()); 
 		app.use(express.methodOverride());

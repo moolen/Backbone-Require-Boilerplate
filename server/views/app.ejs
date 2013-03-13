@@ -9,7 +9,7 @@
   <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width"> 
-  <link rel="stylesheet" type="text/css" href="css/app.css"  />
+  <link rel="stylesheet" type="text/css" href="css/main.min.css"  />
 </head>
 <body>
 	<div id="page-wrapper">
@@ -56,7 +56,7 @@
 	 	MyApp.baseUrl = "<%= appUrl %>";
 	 </script>
 	 <%if ( env == "development" ) { %>  <script data-main="js/main.js" src="js/libs/require.js"></script> <% } %>
-	 <%if ( env == "production" ) { %> <script data-main="js/main.min.js" src="js/libs/require.js"></script> <% } %> 	 
+	 <%if ( env == "production" ) { %> <script data-main="js/main.min.js" src="js/libs/require.min.js"></script> <% } %> 	 
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 </body>
 </html>
