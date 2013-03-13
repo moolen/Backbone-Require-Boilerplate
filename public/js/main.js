@@ -1,6 +1,6 @@
 require.config({
 
-  baseUrl: "/",
+  baseUrl: MyApp.baseUrl,
 
   paths: {
 
