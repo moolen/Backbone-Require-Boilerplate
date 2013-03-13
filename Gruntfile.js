@@ -40,7 +40,7 @@ module.exports = function (grunt) {
                 options: {
                 	baseUrl: './public/js',
                 	name: "main",
-                	out: "main.min.js",
+                	out: "./public/js/main.min.js",
                     optimize: 'uglify2',
                     preserveLicenseComments: false,
                     useStrict: true,
