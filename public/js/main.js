@@ -3,22 +3,22 @@ require.config({
   paths: {
 
       // Core Libraries
-      "jquery": "js/libs/jquery",
-      "jqueryui": "js/libs/jqueryui",
-      "underscore": "js/libs/lodash",
-      "backbone": "js/libs/backbone",
+      "jquery": "./libs/jquery",
+      "jqueryui": "./libs/jqueryui",
+      "underscore": "./libs/lodash",
+      "backbone": "./libs/backbone",
 
       // Plugins
-      "backbone.validateAll": "js/libs/plugins/Backbone.validateAll",
-      "text": "js/libs/plugins/text",
-      "datepicker" : "js/libs/datepicker",
+      "backbone.validateAll": "./libs/plugins/Backbone.validateAll",
+      "text": "./libs/plugins/text",
+      "datepicker" : "./libs/datepicker",
 
       // Application Folders
-      "collections": "js/app/collections",
-      "models": "js/app/models",
-      "routers": "js/app/routers",
-      "templates": "js/app/templates",
-      "views": "js/app/views"
+      "collections": "./app/collections",
+      "models": "./app/models",
+      "routers": "./app/routers",
+      "templates": "./app/templates",
+      "views": "./app/views"
 
   },
 

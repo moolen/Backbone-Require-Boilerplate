@@ -39,11 +39,11 @@ module.exports = function(app, express, partials,  expressValidator, mysql) {
 
         // public vars for views
         app.locals({
-            appUrl : appUrl,
+            appUrl : appUrlNoSSL,
             env: "production",
         });
         console.log('Using prod env');
-        console.log(appUrl);
+        console.log(appUrlNoSSL);
     });
 
 
