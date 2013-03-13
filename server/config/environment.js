@@ -39,7 +39,8 @@ module.exports = function(app, express, partials,  expressValidator, mysql) {
 
         // public vars for views
         app.locals({
-            appUrl : appUrl
+            appUrl : appUrl,
+            env: "production",
         });
         console.log('Using prod env');
         console.log(appUrl);
@@ -68,6 +69,7 @@ module.exports = function(app, express, partials,  expressValidator, mysql) {
         // public vars for views
         app.locals({
             appUrl: appUrl,
+            env: "development",
         });
         console.log('Using dev env\r\n');
         console.log(appUrl);

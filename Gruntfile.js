@@ -9,10 +9,21 @@ module.exports = function (grunt) {
     grunt.initConfig({
         watch: {
             files: "public/css/*.less",
-            tasks: ["less"]
+            tasks: ["less:development"]
         },
         less: {
             development: {
+                options: {
+                    paths: ["public/css/"],
+                    compress: false,
+                    yuicompress: false,
+                    
+                },
+                files: {
+                    "public/css/app.css": "public/css/app.less"
+                }
+            },
+            production: {
                 options: {
                     paths: ["public/css/"],
                     compress: true,
@@ -25,22 +36,25 @@ module.exports = function (grunt) {
             },
         },
         requirejs: {
-	        dist: {
+	        compile: {
                 options: {
-                	name: "public/js/main",
-                	out: "public/js/app.min.js",
-                    baseUrl: './',
+                	baseUrl: './public',
+                	name: "js/main",
+                	out: "js/main.min.js",
                     optimize: 'uglify2',
                     preserveLicenseComments: false,
                     useStrict: true,
                     wrap: true,
-                    //uglify2: {} // https://github.com/mishoo/UglifyJS2
                     mainConfigFile: 'public/js/main.js'
                 }
-            }
+            },
 		},
 		        
     }); // end init Config
 
     grunt.registerTask('default', ['watch']);
+    grunt.registerTask('build', [
+    		'requirejs',
+    		'less:production',
+    ]);
 };

@@ -10,9 +10,7 @@ define([
             el: "body",
 
             initialize: function() {
-
                 this.render();
-                Backbone.Events.on( 'CloseView', this.close, this );
             },
 
             events: {
@@ -31,7 +29,6 @@ define([
             },
            
             close: function(){
-	        	Backbone.Events.off( 'CloseView', this.close, this );
 	        	console.log("inbox.close");
 	        	$(".app-nav a.goinbox").removeClass("active");
 	        	this.$el.find(".content-box").show();

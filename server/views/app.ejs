@@ -10,100 +10,6 @@
   <meta name="description" content="">
   <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width"> 
   <link rel="stylesheet" type="text/css" href="css/app.css"  />
-  <!--Detect if the browser is a mobile browser or a desktop browser and conditionally include your JavaScript --> 
-  <script>
-  		
-      // Mobile/Desktop Detection script
-      (function(ua, w, d, undefined) {
-
-        // App Environment
-        var production = false,
-          // Configuration object that will contain the correct prod/dev CSS and JavaScript files to load
-          config = {}
-        w.addEventListener("DOMContentLoaded", function() {
-          // Mobile/Tablet Logic
-          if((/iPhone|iPod|iPad|Android|BlackBerry|Opera Mini|IEMobile/).test(ua)) {
-            config = {
-              "dev-css": ["css/app.css"],
-              "dev-js": [{ "data-main": "js/app/config/MobileInit.js", "src": "js/libs/require.js" }],
-              "prod-js": ["js/app/config/MobileInit.min.js"]
-            };
-
-          }
-
-          // Desktop Logic
-          else {
-            config = {
-              "dev-css": ["css/app.css"],
-              "dev-js": [{ "data-main": "js/app/config/DesktopInit.js", "src": "js/libs/require.js" }],
-              "prod-js": ["js/app/config/DesktopInit.min.js"]
-            }
-
-          }
-
-          loadFiles(config, function() {
-
-              loadFiles({
-                "dev-css": ["css/app.css"],
-                "prod-css": ["css/app.min.css"]
-              });
-
-          });
-
-          function loadCSS(urls, callback) {
-
-            var x, link;
-            for(x = 0; x <= urls.length - 1; x += 1) {
-              link = d.createElement("link");
-              link.type = "text/css";
-              link.rel = "stylesheet";
-              link.href = urls[x];
-              d.querySelector("head").appendChild(link);
-            }
-
-            if(callback) callback();
-
-          }
-
-          function loadJS(files, callback) {
-            var x, script, file
-            for(x = 0; x <= files.length - 1; x += 1) {
-              file = files[x];
-              script = d.createElement('script');
-              if(((typeof file).toLowerCase()) === "object" && file["data-main"] !== undefined) {
-                script.setAttribute("data-main", file["data-main"]);
-                script.src = file.src;
-              }
-
-              else {
-                script.src = file;
-              }
-              d.body.appendChild(script);
-            }
-            if(callback) callback();
-          }
-
-          function loadFiles(obj, callback) {
-            if(production) {
-              loadCSS(obj["prod-css"], function() {
-                if(obj["prod-js"]) {
-                  loadJS(obj["prod-js"], callback);
-                }
-              });
-            }
-            else {
-              loadCSS(obj["dev-css"], function() {
-                if(obj["dev-js"]) {
-                  loadJS(obj["dev-js"], callback);
-                }
-              });
-            }
-          }
-        }, false);
-
-      })(navigator.userAgent || navigator.vendor || window.opera, window, window.document);
-
-  </script>
 </head>
 <body>
 	<div id="page-wrapper">
@@ -143,6 +49,13 @@
 		<!-- end main body -->
 		<footer id="footer"></footer>
 	</div>	
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+	 <script>
+	 	var MyApp = MyApp || {};
+	 	MyApp.currentView = null;
+	 	MyApp.env = "<%= env %>";
+	 </script>
+	 <%if ( env == "development" ) { %>  <script data-main="js/main.js" src="js/libs/require.js"></script> <% } %>
+	 <%if ( env == "production" ) { %> <script data-main="js/main.min.js" src="js/libs/require.js"></script> <% } %> 	 
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 </body>
 </html>
