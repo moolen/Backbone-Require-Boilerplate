@@ -53,6 +53,7 @@
 	 	var MyApp = MyApp || {};
 	 	MyApp.currentView = null;
 	 	MyApp.env = "<%= env %>";
+	 	MyApp.baseUrl = "<%= appUrl %>";
 	 </script>
 	 <%if ( env == "development" ) { %>  <script data-main="js/main.js" src="js/libs/require.js"></script> <% } %>
 	 <%if ( env == "production" ) { %> <script data-main="js/main.min.js" src="js/libs/require.js"></script> <% } %> 	 
