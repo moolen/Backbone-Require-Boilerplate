@@ -38,14 +38,14 @@ module.exports = function (grunt) {
         requirejs: {
 	        compile: {
                 options: {
-                	baseUrl: './public',
-                	name: "js/main",
-                	out: "js/main.min.js",
+                	baseUrl: './public/js',
+                	name: "main",
+                	out: "main.min.js",
                     optimize: 'uglify2',
                     preserveLicenseComments: false,
                     useStrict: true,
                     wrap: true,
-                    mainConfigFile: 'public/js/main.js'
+                    mainConfigFile: './public/js/main.js'
                 }
             },
 		},
