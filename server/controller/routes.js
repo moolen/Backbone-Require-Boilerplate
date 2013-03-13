@@ -11,7 +11,7 @@ module.exports = function(app, dao, everyauth) {
 	app.get("/", function(req, res, next) {
 		
     	//if( req.session.user_id != undefined ){
-	    	res.render("app", { layout : false } );
+	    	res.render("app", { layout : false, } );
     	//}else{
 	    	//res.redirect("/login");
     	//}
@@ -27,7 +27,6 @@ module.exports = function(app, dao, everyauth) {
 	    	res.redirect("/login");
     	}
     });
-    
     
     /***************
     *

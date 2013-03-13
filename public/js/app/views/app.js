@@ -16,7 +16,7 @@ define([
             el: "body",
 
             initialize: function() {
-	            console.log("init App");
+	            MyApp.currentView = "App";
                 this.render(this.options);
                 Backbone.Events.on( 'goBlog', this.goBlog, this );
                 Backbone.Events.on( 'goApi', this.goApi, this );
@@ -57,26 +57,26 @@ define([
             *	RENDER (SUB-)VIEWS		*
             *							*
             ****************************/
-            
-            goStart : function(){
+
+            goStart : function() {
                 this.currentView ? this.currentView.close() : null;
 	            var itemView = new Start();
 	            this.currentView = itemView;
             },
             
-            goBlog : function(){
+            goBlog : function() {
                 this.currentView ? this.currentView.close() : null;
 	            var itemView = new Blog();
 	            this.currentView = itemView;
             },
             
-            goApi : function(){
+            goApi : function() {
                 this.currentView ? this.currentView.close() : null;
 	            var itemView = new Api();
 	            this.currentView = itemView;
             },
             
-            goDashboard : function(){
+            goDashboard : function() {
                 this.currentView ? this.currentView.close() : null;
 	            var itemView = new Dashboard();
 	            this.currentView = itemView;
@@ -86,7 +86,7 @@ define([
 	            var itemView = new Inbox();
 	            this.currentView = itemView;
             },      
-            goBooking: function(){
+            goBooking: function() {
                 this.currentView ? this.currentView.close() : null;
                 var itemView = new Booking();
                 this.currentView = itemView;
@@ -165,12 +165,12 @@ define([
             
             close: function() {
             	// close AppView here.
+            	console.log("closing AppView");
 	        	Backbone.Events.off( 'slideWindowTo', this.slideWindowTo, this );
                 Backbone.Events.off( 'moveFrameRight', this.moveFrameRight, this );
                 Backbone.Events.off( 'moveFrameLeft', this.moveFrameLeft, this );
                 this.unbind();
 		        this.views = [];
-		        console.log("App.close");
             }
         });
 

@@ -151,6 +151,7 @@ define([
                   },
                 });
            },
+           
            initCompareSlider: function(){
            		$(".slider").each(function(i, e){
 	           		var data = $(this).parent().attr("data"),

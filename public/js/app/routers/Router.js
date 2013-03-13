@@ -7,25 +7,35 @@ define([
 	],
     function($, Backbone, Model, App, Collection) {
 
-        var DesktopRouter = Backbone.Router.extend({
+        var Router = Backbone.Router.extend({
 
             initialize: function() {
                 Backbone.history.start();
             },
             routes: {
-                ""				: 		"index",
-                // app stuff
-                "dashboard"		: 		"dashboard",
-                "booking"		: 		"booking",
-                "inbox" 		: 		"inbox",
-                
-                // nav stuff
-                "blog" 			: 		"blog",
-                "api"			: 		"api",
+                "*variables"				: 		"buildRoute",
                 
                 
             },
-
+            buildRoute: function(hash) {
+            	if(MyApp.currentView !== null){
+            		MyApp.currentView = hash.charAt(0).toUpperCase() + hash.slice(1);
+	            	console.log("router: trigger hash #" + MyApp.currentView);
+	            	if(MyApp.currentView == ""){
+	            		// case: no hash - render start
+	            		console.log("router:goStart")
+		            	Backbone.Events.trigger("goStart");
+	            	}else{
+		            	// case: go to view defined in hash
+		            	Backbone.Events.trigger("go" + MyApp.currentView);
+	            	}
+	            }else{
+	            	console.log("##### NEW APP INSTANCE #####");
+	            	new App({ view: hash });
+            	}
+	            
+            },
+            /*
             index: function() {
                 new App();
             },
@@ -44,10 +54,11 @@ define([
             booking: function(){
                 Backbone.Events.trigger( 'goBooking' );
             },
+            */
     
         });
 
-        return DesktopRouter;
+        return Router;
 
     }
 

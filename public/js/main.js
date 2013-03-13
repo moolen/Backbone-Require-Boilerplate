@@ -1,35 +1,26 @@
 require.config({
 
-  baseUrl: "./js",
+  baseUrl: "/",
 
   paths: {
 
       // Core Libraries
-      "jquery": "public/js/libs/jquery",
-
-      "jqueryui": "public/js/libs/jqueryui",
-
-      "underscore": "public/js/libs/lodash",
-
-      "backbone": "public/js/libs/backbone",
+      "jquery": "js/libs/jquery",
+      "jqueryui": "js/libs/jqueryui",
+      "underscore": "js/libs/lodash",
+      "backbone": "js/libs/backbone",
 
       // Plugins
-      "backbone.validateAll": "public/js/libs/plugins/Backbone.validateAll",
-
-      "text": "public/js/libs/plugins/text",
-
-      "datepicker" : "public/js/libs/datepicker",
+      "backbone.validateAll": "js/libs/plugins/Backbone.validateAll",
+      "text": "js/libs/plugins/text",
+      "datepicker" : "js/libs/datepicker",
 
       // Application Folders
-      "collections": "public/js/app/collections",
-
-      "models": "public/js/app/models",
-
-      "routers": "public/js/app/routers",
-
-      "templates": "public/js/app/templates",
-
-      "views": "public/js/app/views"
+      "collections": "js/app/collections",
+      "models": "js/app/models",
+      "routers": "js/app/routers",
+      "templates": "js/app/templates",
+      "views": "js/app/views"
 
   },
 
@@ -47,10 +38,7 @@ require.config({
 
 });
 
-require(["jquery", "backbone", "routers/DesktopRouter", "jqueryui", "backbone.validateAll"],
-  function($, Backbone, DesktopRouter) {
-    new DesktopRouter();    
-
-  }
-
-);
+require(["jquery", "backbone", "routers/Router", "jqueryui", "backbone.validateAll"],
+	function($, Backbone, Router) {
+		new Router();
+});
