@@ -17,6 +17,7 @@ define([
             },
 
             render: function() {
+            	console.log("initializing inboxView");
 	            $(".app-nav a.goinbox").addClass("active");
                 this.template = _.template(template, {});
                 this.$el.find('.viewport').html("HEELELAOSD");
