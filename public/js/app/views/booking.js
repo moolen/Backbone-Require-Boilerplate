@@ -340,9 +340,13 @@ define([
            },
            
            onBodyClick: function(e){
-           		if(e.srcElement.className != "fontawesome-edit" && e.srcElement.className != "fontawesome-ban-circle"){
+           	console.log(e);
+           	if(e){
+	           	if(e.srcElement.className != "fontawesome-edit" && e.srcElement.className != "fontawesome-ban-circle"){
 	           		$(".arrow-popup").remove();
            		}
+           	}
+           		
            		
            },
            
