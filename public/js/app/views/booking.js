@@ -340,7 +340,6 @@ define([
            },
            
            onBodyClick: function(e){
-           	console.log(e);
            	if(e.srcElement != undefined){
 	           	if(e.srcElement.className != "fontawesome-edit" && e.srcElement.className != "fontawesome-ban-circle"){
 	           		$(".arrow-popup").remove();
