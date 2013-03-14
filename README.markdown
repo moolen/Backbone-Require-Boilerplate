@@ -23,5 +23,6 @@ You can use the Grunt.js build task to concat and minify the Javascript AMD Modu
 Watch for changes in app.less, recompiles the less, concatenates and minifies the source 
 >	```grunt watch```
 
-Build the project: compile, concat and minify less/css and JS in your project. Be sure to change the appUrl in ./server/config/environment.js (app.configure('production')\[...\]) to your production url.
+Build the project: compile, concat and minify less/css and JS in your project. 
+Be sure to change the appUrl in ./server/config/environment.js (app.configure('production')\[...\]) to your production url.
 >	```grunt build```

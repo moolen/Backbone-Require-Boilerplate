@@ -34,7 +34,7 @@ define([
                 "click #goDashboard" : "goDashboard"
             },
             initialize: function() {
-            	console.log("initializing bookingView")
+            	console.log("initializing bookingView");
             	this.render();
                 this.initForm();
             },

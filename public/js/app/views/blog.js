@@ -26,7 +26,7 @@ define(["jquery", "backbone", "models/model", "text!templates/page/blog.html"],
             },
             close: function(){
 	             Backbone.Events.trigger( 'clearView');
-		        $('#blog').remove();
+		        $("#blog-container").remove();
 		        this.unbind();
 		        this.views = [];   // Clear the view array
 

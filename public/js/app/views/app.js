@@ -31,11 +31,11 @@ define([
             },
 
             events: {
-            	"click #godashboard" : "goDashboard",
-            	"click #gobooking" : "goBooking",
-            	"click #goinbox" : "goInbox",
-            	"click #NavGoBlog" : "goBlog",
-            	"click #NavGoApi" : "goApi",
+            	//"click #godashboard" : "goDashboard",
+            	//"click #gobooking" : "goBooking",
+            	//"click #goinbox" : "goInbox",
+            	//"click #NavGoBlog" : "goBlog",
+            	//"click #NavGoApi" : "goApi",
             },
 
             render: function() {
@@ -159,6 +159,7 @@ define([
 	            $(".app-nav a").removeClass("active");
 	        	$(".top-nav .left a").removeClass("active");
                 $(".viewport").children().remove();
+                $("#blog-container").remove();
                 $(".content-box").hide();
 	        	$(".viewport-wrapper").hide();
             },
