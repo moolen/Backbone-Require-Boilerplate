@@ -5,8 +5,10 @@ demo running [here](http://moolen.aries.uberspace.de/boilerplate/)
 
 ## Setup
 
-install grunt and dependencies
+> install grunt and dependencies
 	```npm install```
+> inside the root dir start the server with
+	```node ./server/server.js```
 
 ## Environment Settings
 Run the node server with 
