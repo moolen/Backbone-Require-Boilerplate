@@ -5,6 +5,7 @@
     "datepicker": "http://www.eyecon.ro/bootstrap-datepicker/datepicker.zip",
     "backbone": "~0.9",
     "lodash": "~1.0.1",
-    "modernizr": "~3"
+    "modernizr": "https://github.com/Modernizr/Modernizr",
+    "requirejs": "http://requirejs.org/docs/release/2.1.5/minified/require.js"
   }
 }

@@ -59,10 +59,10 @@
 	 <% } %> 
 	 </script>
 	 <%if ( env == "development" ) { %>  
-	 	<script data-main="js/main.js" src="js/libs/require.js"></script> 
+	 	<script data-main="js/main.js" src="js/libs/requirejs/index.js"></script> 
 	 <% } %>
 	 <%if ( env == "production" ) { %> 
-	 	<script data-main="js/main.min.js" src="js/libs/require.min.js"></script> 
+	 	<script data-main="js/main.min.js" src="js/libs/requirejs/index.js"></script> 
 	 <% } %> 	 
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 </body>
