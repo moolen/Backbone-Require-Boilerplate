@@ -4,7 +4,6 @@ require.config({
 
       // Core Libraries
       "jquery": "./libs/jquery",
-      "jqueryui": "./libs/jqueryui",
       "underscore": "./libs/lodash",
       "backbone": "./libs/backbone",
 
@@ -12,6 +11,7 @@ require.config({
       "backbone.validateAll": "./libs/plugins/Backbone.validateAll",
       "text": "./libs/plugins/text",
       "datepicker" : "./libs/datepicker",
+      "jqueryui": "./libs/jqueryui",
 
       // Application Folders
       "collections": "./app/collections",
@@ -24,13 +24,13 @@ require.config({
 
   shim: {
 
-      "jqueryui": ["jquery", "datepicker"],
+      "jqueryui": [ "jquery" ],
       "backbone": {
-            "deps": ["underscore", "jquery"],
+            "deps": [ "underscore", "jquery" ],
             "exports": "Backbone"
       },
-      "datepicker" : ["jquery"],
-      "backbone.validateAll": ["backbone"]
+      "datepicker" : [ "jquery" ],
+      "backbone.validateAll": [ "backbone" ]
 
   }
 
