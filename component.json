@@ -6,6 +6,8 @@
     "backbone": "~0.9",
     "lodash": "~1.0.1",
     "modernizr": "https://github.com/Modernizr/Modernizr",
-    "requirejs": "http://requirejs.org/docs/release/2.1.5/minified/require.js"
+    "requirejs": "http://requirejs.org/docs/release/2.1.5/minified/require.js",
+    "Backbone.validateAll": "git://github.com/gfranko/Backbone.validateAll.git",
+    "requirejstext": "https://raw.github.com/requirejs/text/latest/text.js"
   }
 }

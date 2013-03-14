@@ -22,7 +22,7 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <meta content="authenticity_token" name="csrf-param" />
-<meta content="p/Gw5vou/1lU7nIpMfM0984tVg8yQakvySHcKSWJt9M=" name="csrf-token" />
+<meta content="WljCpQzV4ZgqCifjihBwiHcPMO9WirKTMwXYYmtVdok=" name="csrf-token" />
 
     <link href="https://a248.e.akamai.net/assets.github.com/assets/github-6ccf82d7a2441a163b455774e1b7eb19758d4d8a.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="https://a248.e.akamai.net/assets.github.com/assets/github2-a70d440e2e461f87b4e7a06e02fbe906a55b49b5.css" media="screen" rel="stylesheet" type="text/css" />
@@ -68,8 +68,8 @@
           <div class="container clearfix">
 
             <a class="header-logo-wordmark" href="https://github.com/">
-              <img alt="GitHub" class="github-logo-4x" height="30" src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov7@4x.png?1340659561" />
-              <img alt="GitHub" class="github-logo-4x-hover" height="30" src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov7@4x-hover.png?1340659561" />
+              <img alt="GitHub" class="github-logo-4x" height="30" src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov7@4x.png?1360648843" />
+              <img alt="GitHub" class="github-logo-4x-hover" height="30" src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov7@4x-hover.png?1360648843" />
             </a>
 
               
@@ -147,7 +147,7 @@
     <li><a href="/Modernizr/Modernizr/network" highlight="repo_network">Network</a></li>
     <li><a href="/Modernizr/Modernizr/pulls" highlight="repo_pulls">Pull Requests <span class='counter'>30</span></a></li>
 
-      <li><a href="/Modernizr/Modernizr/issues" highlight="repo_issues">Issues <span class='counter'>121</span></a></li>
+      <li><a href="/Modernizr/Modernizr/issues" highlight="repo_issues">Issues <span class='counter'>120</span></a></li>
 
       <li><a href="/Modernizr/Modernizr/wiki" highlight="repo_wiki">Wiki</a></li>
 
@@ -193,7 +193,7 @@
         </div>
 
       <div class="edit-repo-desc-homepage" style="display:none">
-        <form accept-charset="UTF-8" action="/Modernizr/Modernizr/settings/update_meta" id="js-update-repo-meta-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="p/Gw5vou/1lU7nIpMfM0984tVg8yQakvySHcKSWJt9M=" /></div>
+        <form accept-charset="UTF-8" action="/Modernizr/Modernizr/settings/update_meta" id="js-update-repo-meta-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="WljCpQzV4ZgqCifjihBwiHcPMO9WirKTMwXYYmtVdok=" /></div>
           <p class="error" style="display:none">Sorry, but there was a problem saving your changes.</p>
           <input type="text" id="repository-description-field" class="description-field" name="repo_description" value="Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser." placeholder="Add a description to this repository">
           <input type="text" id="repository-homepage-field" class="homepage-field" name="repo_homepage" value="http://modernizr.com" placeholder="Add a website to this repository">
@@ -656,7 +656,7 @@ visit &lt;url&gt;/tests
 <br style="clear:both;">
 
 <div id="js-frame-loading-template" class="frame frame-loading large-loading-area" style="display:none;">
-  <img class="js-frame-loading-spinner" src="https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-128.gif?1347543527" height="64" width="64">
+  <img class="js-frame-loading-spinner" src="https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-128.gif?1360648843" height="64" width="64">
 </div>
 
 
@@ -719,7 +719,7 @@ visit &lt;url&gt;/tests
       <hr class="footer-divider">
 
 
-    <p class="right">&copy; 2013 <span title="0.06662s from fe18.rs.github.com">GitHub</span>, Inc. All rights reserved.</p>
+    <p class="right">&copy; 2013 <span title="0.08178s from fe3.rs.github.com">GitHub</span>, Inc. All rights reserved.</p>
     <a class="left" href="https://github.com/">
       <span class="mega-icon mega-icon-invertocat"></span>
     </a>
@@ -766,7 +766,7 @@ visit &lt;url&gt;/tests
 
     
     
-    <span id='server_response_time' data-time='0.06703' data-host='fe18'></span>
+    <span id='server_response_time' data-time='0.08229' data-host='fe3'></span>
     
   </body>
 </html>
