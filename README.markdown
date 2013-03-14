@@ -3,8 +3,13 @@ SampleApp
 
 demo running [here](http://moolen.aries.uberspace.de/boilerplate/)
 
+## Setup
+
+install grunt and dependencies
+	```npm install grunt grunt-contrib-less grunt-contrib-watch grunt-contrib-requirejs grunt-contrib-concat grunt-contrib-cssmin```
+
 ## Environment Settings
-run the node server with 
+Run the node server with 
 	```NODE_ENV=production node ./server/server.js```
 or
 	```NODE_ENV=development node ./server/server.js```
