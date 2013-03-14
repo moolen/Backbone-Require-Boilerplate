@@ -5,9 +5,9 @@ demo running [here](http://moolen.aries.uberspace.de/boilerplate/)
 
 ## Environment Settings
 run the node server with 
-	```NODE_ENV=production node ./server/server.js
+	```NODE_ENV=production node ./server/server.js```
 or
-	```NODE_ENV=development node ./server/server.js
+	```NODE_ENV=development node ./server/server.js```
 
 	
 ## Build process
