@@ -7,7 +7,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-
+    grunt.loadNpmTasks('grunt-contrib-livereload');
+    
     grunt.initConfig({
         watch: {
             files: "public/css/app.less",
@@ -20,6 +21,7 @@ module.exports = function (grunt) {
         ****************************/
         less: {
             development: {
+            	// not used. remove or customize
                 options: {
                     paths: ["public/css/"],
                     compress: false,
