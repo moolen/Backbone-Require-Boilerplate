@@ -24,7 +24,7 @@ require.config({
 
   shim: {
 
-      "jqueryui": ["jquery"],
+      "jqueryui": ["jquery", "datepicker"],
       "backbone": {
             "deps": ["underscore", "jquery"],
             "exports": "Backbone"
