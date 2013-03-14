@@ -9,8 +9,8 @@ require.config({
       "jqueryui": "./libs/jquery-ui/ui/jquery-ui.custom",
       
       // Plugins
-      "backbone.validateAll": "./libs/plugins/Backbone.validateAll",
-      "text": "./libs/plugins/text",
+      "backbone.validateAll": "./libs/Backbone.validateAll/src/javascripts/Backbone.validateAll",
+      "text": "./libs/requirejstext/index",
       "datepicker" : "./libs/datepicker/js/bootstrap-datepicker",
       
 
