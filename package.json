@@ -1,6 +1,6 @@
 {
-  "name": "grunt-contrib-cssmin",
-  "description": "Compress CSS files.",
+  "name": "Backbone Requirejs node boilerplate",
+  "description": "Sample onepage webapp using backbone, require, node, jquery etc. with a build process",
   "version": "0.4.2",
   "dependencies": {
     "grunt-contrib-less": "~0.5.0",
@@ -15,6 +15,7 @@
     "everyauth": "0.3.1",
     "bcrypt": "0.7.5",
     "validator": "~0.4",
+    "ejs": "~0.8.3",
     "grunt": "~0.4.0",
     "express": "3.x"
   }
