@@ -1,9 +1,0 @@
-{
-  "name": "Backbone.validateAll",
-  "version": "0.0.0",
-  "commit": "7b2aadbdb4dabf7562320d9ecdff471afec45c8b",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/gfranko/Backbone.validateAll.git"
-  }
-}
