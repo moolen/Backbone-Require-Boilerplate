@@ -1,6 +1,5 @@
 var mysql = require('mysql'),
-	bcrypt = require('bcrypt');
-var dbConnect = exports;
+	dbConnect = exports;
 
 dbConnect.setClient = function (options) {
     dbConnect.client = mysql.createConnection({

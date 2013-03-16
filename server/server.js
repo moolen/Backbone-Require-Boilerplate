@@ -6,9 +6,9 @@ var express = require('express'),
 	expressValidator = require('express-validator'),
 	app = express(),
 	mysql = require('mysql'),
-	dao = require('./database/mysqlConnector.js'),
-	env = require('./config/environment.js')(app, express, partials, expressValidator, dao),
-	rou = require('./controller/routes.js')(app, dao);
+	dao = require('./modules/mysqlConnector.js'),
+	env = require('./environment.js')(app, express, partials, expressValidator, dao),
+	rou = require('./routes.js')(app, dao);
 	  
 
 

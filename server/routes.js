@@ -3,7 +3,7 @@ var http = require('http'),
 	util = require('util'),
 	querystring = require('querystring'),
 	check = require('validator').check,
-	sanitize = require('validator').sanitize,	
+	sanitize = require('validator').sanitize;
 	
 module.exports = function(app, dao) {
 	
