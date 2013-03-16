@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 node_modules/
+=======
+node_modules
+>>>>>>> 2653d999c7ed3a3759cc1c81a4af0b949dbb4697
 .DS_Store
 public/js/libs/
