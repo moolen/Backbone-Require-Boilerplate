@@ -4,9 +4,8 @@ var http = require('http'),
 	querystring = require('querystring'),
 	check = require('validator').check,
 	sanitize = require('validator').sanitize,	
-	bcrypt = require('bcrypt');
 	
-module.exports = function(app, dao, everyauth) {
+module.exports = function(app, dao) {
 	
 	app.get("/", function(req, res, next) {
 		

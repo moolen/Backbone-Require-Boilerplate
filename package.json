@@ -13,8 +13,6 @@
     "express-partials": "0.0.6",
     "express-validator": "0.3.2",
     "mysql": "~2.0",
-    "everyauth": "0.3.1",
-    "bcrypt": "0.7.5",
     "validator": "~0.4",
     "ejs": "~0.8.3",
     "bower": ">=0.8.5",
