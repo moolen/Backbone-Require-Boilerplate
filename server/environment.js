@@ -14,7 +14,7 @@ module.exports = function(app, express, partials,  expressValidator, mysql) {
 		app.set('port', 8123);
 		app.set('view options', {pretty: true});
 		app.set('views', __dirname + '/views');
-        app.use(express.static(__dirname.replace('/server','') +'/public/'));
+        app.use(express.static(__dirname.replace('/server','/public')));
         app.use(express.cookieSession({ secret : "adfq394QW35twerTW$%&ZE%$6uzR%U&erFT", path: '/', httpOnly: true, maxAge: 1000*60*60*24 }));
         app.use(app.router);
 	});

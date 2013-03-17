@@ -17,3 +17,4 @@ var express = require('express'),
 app.listen(app.settings.port, "localhost");
 console.log("startet app with settings \r\n");
 console.log(app.settings);
+console.log(__dirname.replace('\server','\public'));

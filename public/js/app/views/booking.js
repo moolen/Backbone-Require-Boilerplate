@@ -16,8 +16,8 @@ define([
             el: "body",
             events: {
             	"click .addTermin" : "addTermin",
-                //"click #addTermin" : "addTermin",
                 "keypress input" : "onInputChange",
+                "click input" : "onInputClick",
                 "change .termin_change" : "onTerminChange",
                 "change #inputStart" : "onInputStartChange",
                 "click .deleteTermin" : "deleteTermin",
@@ -36,6 +36,7 @@ define([
             },
             initialize: function() {
             	console.log("initializing bookingView");
+                MyApp.bookings.termincount = 1;
             	this.render();
                 this.initForm();
             },
@@ -60,13 +61,16 @@ define([
 	                duration: 350,
 	                easing: "linear"
                 });
+                MyApp.bookings.termincount++;
+                console.log(MyApp.bookings.termincount);
+
                 //this.initForm();
                 // demo stuff
                 var $new = $("#form_termine").children(".termin_entry:last"),
                 	$new_input = $("#form_termine").children(".termin_entry:last").find("input");
-                
-                $new.css("opacity", ".5");
-                $new_input.attr("disabled", "disabled");
+                this.adjustSleep();
+                //$new.css("opacity", ".5");
+                //$new_input.attr("disabled", "disabled");
             },
 
             deleteTermin : function(e){
@@ -76,6 +80,7 @@ define([
                         easing: "linear", 
                         complete: function(e){
                             $termin.remove();
+                            MyApp.bookings.termincount--;
                          }, });
                 
             },
@@ -86,6 +91,9 @@ define([
                   if (code  == 13) {       
                     if($(e.currentTarget).hasClass("termin_change")){
 	                    this.onTerminChange(e);
+                    }
+                    if(e.currentTarget.id == 'inputStart'){
+                      this.onInputStartChange(e);
                     }     
                     e.preventDefault();
                     return false;
@@ -97,9 +105,25 @@ define([
                 $(e.currentTarget).first().css("background-color","#fff");
             },
 
+            onInputClick: function(e) {
+              $('input.datepicker').each(function(i, v){
+                var index = i;
+                if($(e.currentTarget).is($(this))) {
+                  // i got the index of shown input now.
+                  $('.datepicker.dropdown-menu').each(function(i2, e2){
+                    if(index != i2) {
+                      // if not index, hide this!
+                      $(this).hide();
+                    }
+                  });
+                }
+              });
+            },
+
            onInputStartChange: function(e) {
-              var value = e.currentTarget.value;
-              $('#InputEnd').value = value;
+              setTimeout(function(){
+                $('#InputEnd')[0].value = e.currentTarget.value;
+              }, 200);
            },
             
            onTerminChange : function(e){
@@ -127,7 +151,7 @@ define([
             this.initAutocomplete();
             $(".datepicker.dropdown-menu").remove();
             $(".datepicker").undelegate();
-
+            var that = this;
             var today = new Date(),
                      todayDay = today.getDate(),
                      todayMonth = today.getMonth() +1,
@@ -144,6 +168,7 @@ define([
                 }, });
             });
             // init slider
+            
             $( ".slider-range" ).slider({
                   range: true,
                   min: 0,
@@ -151,6 +176,11 @@ define([
                   values: [ 8, 16 ],
                   slide: function( event, ui ) {
                     $( this ).siblings(".set_time").val( ui.values[ 0 ] + " - " + ui.values[ 1 ] + " Uhr");
+                    // adjust sleep field
+                    if( ui.values[1] >= 20 ){
+                      that.adjustSleep( event );
+                    }
+                    
                   },
                   create: function(event, ui){
                      $( this ).siblings(".set_time").val( "8 - 16 Uhr");
@@ -158,6 +188,17 @@ define([
                 });
            },
            
+           adjustSleep: function( obj ){
+            if(obj !== undefined){
+              console.log($(this));
+
+            }
+            if( MyApp.bookings.termincount >= 2 ){
+              console.log('MyApp.bookings.termincount firing');
+              $('.sleep input').removeAttr('disabled');
+            }
+           },
+
            initCompareSlider: function(){
            		$(".slider").each(function(i, e){
 	           		var data = $(this).parent().attr("data"),
