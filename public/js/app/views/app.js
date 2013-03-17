@@ -158,6 +158,7 @@ define([
             clearView: function(){
 	            $(".app-nav a").removeClass("active");
 	        	$(".top-nav .left a").removeClass("active");
+                    $(".arrow-popup").remove();
                 $(".viewport").children().remove();
                 $("#blog-container").remove();
                 $(".content-box").hide();

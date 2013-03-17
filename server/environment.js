@@ -4,6 +4,7 @@ module.exports = function(app, express, partials,  expressValidator, mysql) {
 	// config for all environments
 	app.configure(function() {
 		app.use(express.compress());
+                     app.use(express.logger());
         app.use(express.bodyParser());
         app.use(express.cookieParser()); 
 		app.use(express.methodOverride());
@@ -12,8 +13,8 @@ module.exports = function(app, express, partials,  expressValidator, mysql) {
 		app.set('view engine', 'ejs');
 		app.set('port', 8123);
 		app.set('view options', {pretty: true});
-		app.set('views', __dirname.replace('/config','') + '/views');
-        app.use(express.static(__dirname.replace('/server/config','') +'/public'));
+		app.set('views', __dirname + '/views');
+        app.use(express.static(__dirname.replace('/server','') +'/public/'));
         app.use(express.cookieSession({ secret : "adfq394QW35twerTW$%&ZE%$6uzR%U&erFT", path: '/', httpOnly: true, maxAge: 1000*60*60*24 }));
         app.use(app.router);
 	});

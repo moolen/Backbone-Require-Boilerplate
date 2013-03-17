@@ -19,6 +19,7 @@ define([
                 //"click #addTermin" : "addTermin",
                 "keypress input" : "onInputChange",
                 "change .termin_change" : "onTerminChange",
+                "change #inputStart" : "onInputStartChange",
                 "click .deleteTermin" : "deleteTermin",
                 "click #goComparison" : "goComparison",
                 "click #goBooking" : "goBooking",
@@ -95,6 +96,11 @@ define([
                   }
                 $(e.currentTarget).first().css("background-color","#fff");
             },
+
+           onInputStartChange: function(e) {
+              var value = e.currentTarget.value;
+              $('#InputEnd').value = value;
+           },
             
            onTerminChange : function(e){
                setTimeout(function(){
@@ -226,6 +232,7 @@ define([
            
            goFinishBooking: function(e){
 	           e.preventDefault();
+                $(".arrow-popup").remove();
 	           console.log("goFinishClicked");
 	           Backbone.Events.trigger('moveFrameLeft',  bookingFinish, null );
 	           
