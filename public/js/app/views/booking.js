@@ -62,7 +62,7 @@ define([
 	                easing: "linear"
                 });
                 MyApp.bookings.termincount++;
-                console.log(MyApp.bookings.termincount);
+                $('.sleep input').attr('placeholder', 'Geben Sie einen Standord ein.');
 
                 //this.initForm();
                 // demo stuff
@@ -145,6 +145,10 @@ define([
                              var autocomplete = new google.maps.places.Autocomplete(this, options);
                         }
                     });
+                    setTimeout(function(){
+                      $('.sleep input').removeAttr('placeholder');
+                    }, 200);
+                    
             },
 
            initForm : function(){
@@ -177,7 +181,9 @@ define([
                   slide: function( event, ui ) {
                     $( this ).siblings(".set_time").val( ui.values[ 0 ] + " - " + ui.values[ 1 ] + " Uhr");
                     // adjust sleep field
+                    console.log(this);
                     if( ui.values[1] >= 20 ){
+
                       that.adjustSleep( event );
                     }
                     
