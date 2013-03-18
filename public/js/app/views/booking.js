@@ -56,19 +56,19 @@ define([
             },
 
             addTermin: function(e){
+            	MyApp.bookings.termincount++;
                 var template = _.template(termin, {});
                 $(template).appendTo("#form_termine").slideDown({
 	                duration: 350,
 	                easing: "linear"
                 });
-                MyApp.bookings.termincount++;
-                $('.sleep input').attr('placeholder', 'Geben Sie einen Standord ein.');
-
-                //this.initForm();
+                
+                this.initForm();
                 // demo stuff
                 var $new = $("#form_termine").children(".termin_entry:last"),
                 	$new_input = $("#form_termine").children(".termin_entry:last").find("input");
                 this.adjustSleep();
+                $('.sleep input').attr('placeholder', 'Geben Sie einen Standord ein.');
                 //$new.css("opacity", ".5");
                 //$new_input.attr("disabled", "disabled");
             },
@@ -113,7 +113,7 @@ define([
                   $('.datepicker.dropdown-menu').each(function(i2, e2){
                     if(index != i2) {
                       // if not index, hide this!
-                      $(this).hide();
+                      //$(this).hide();
                     }
                   });
                 }
@@ -146,15 +146,14 @@ define([
                         }
                     });
                     setTimeout(function(){
-                      $('.sleep input').removeAttr('placeholder');
+                      //$('.sleep input').removeAttr('placeholder');
                     }, 200);
                     
             },
 
            initForm : function(){
             this.initAutocomplete();
-            $(".datepicker.dropdown-menu").remove();
-            $(".datepicker").undelegate();
+            //$(".datepicker.dropdown-menu").remove();
             var that = this;
             var today = new Date(),
                      todayDay = today.getDate(),
@@ -164,15 +163,17 @@ define([
              // init placeholder fields
             $("input.set_date_today").attr("placeholder", todayDay+"."+todayMonth+"."+todayYear);
             $(".set_time").attr("placeholder", "Uhrzeit");
+            
             // init datepicker
             $(".datepicker").each(function(){
-                $(this).datepicker({ format: "d.m.yyyy", weekStart: 1,
+                $(this).datepicker({ format: "dd.mm.yyyy", weekStart: 1,
                 changeDate: function(element){
 	                element.removeClass("error");
                 }, });
             });
-            // init slider
             
+            // init slider
+            console.log($(".slider-range"));
             $( ".slider-range" ).slider({
                   range: true,
                   min: 0,
@@ -181,11 +182,8 @@ define([
                   slide: function( event, ui ) {
                     $( this ).siblings(".set_time").val( ui.values[ 0 ] + " - " + ui.values[ 1 ] + " Uhr");
                     // adjust sleep field
-                    console.log(this);
-                    if( ui.values[1] >= 20 ){
-
-                      that.adjustSleep( event );
-                    }
+                    var $element = this;
+                      that.adjustSleep( { element: $element, val : ui.values[1] } );
                     
                   },
                   create: function(event, ui){
@@ -195,12 +193,16 @@ define([
            },
            
            adjustSleep: function( obj ){
+           
             if(obj !== undefined){
-              console.log($(this));
-
+            	if(obj.val >= 20){
+	            	$(obj.element).parent().siblings(".sleep").children("input").removeAttr("disabled").attr("placeholder", "Geben Sie einen Standord ein.");
+            	}else{
+	            	$(obj.element).parent().siblings(".sleep").children("input").attr("disabled", "disabled").attr("placeholder","");
+            	}
             }
+            
             if( MyApp.bookings.termincount >= 2 ){
-              console.log('MyApp.bookings.termincount firing');
               $('.sleep input').removeAttr('disabled');
             }
            },

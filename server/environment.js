@@ -21,9 +21,9 @@ module.exports = function(app, express, partials,  expressValidator, mysql) {
     // config for prod
     app.configure('production', function() {
         
-        var appUrl = 'https://moolen.aries.uberspace.de/boilerplate/',
+        var appUrl = 'http://localhost:8123',
             options = {};
-        var appUrlNoSSL = 'http://moolen.aries.uberspace.de/boilerplate/';
+        var appUrlNoSSL = 'http://localhost:8123';
 
         // db options
         dboptions = {

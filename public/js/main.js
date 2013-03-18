@@ -24,13 +24,14 @@ require.config({
   },
 
   shim: {
-
+  
+	  "datepicker" : [ "jquery", "jqueryui" ],
       "jqueryui": [ "jquery" ],
       "backbone": {
             "deps": [ "underscore", "jquery" ],
             "exports": "Backbone"
       },
-      "datepicker" : [ "jquery" ],
+      
       "backbone.validateAll": [ "backbone" ]
 
   }

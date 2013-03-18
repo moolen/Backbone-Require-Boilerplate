@@ -2,7 +2,7 @@
   "dependencies": {
     "jquery": "~1.9",
     "jquery-ui": "",
-    "datepicker": "http://www.eyecon.ro/bootstrap-datepicker/datepicker.zip",
+    "datepicker": "http://moolen.aries.uberspace.de/bootstrapdatepicker/datepicker.js",
     "backbone": "~0.9",
     "lodash": "~1.0.1",
     "modernizr": "https://github.com/Modernizr/Modernizr",

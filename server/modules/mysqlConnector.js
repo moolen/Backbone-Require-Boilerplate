@@ -20,7 +20,6 @@ dbConnect.UserCheckPassword = function (id, callback) {
 			        callback(null, results)
 	            }
 	    });
-    
 };
 
 dbConnect.UserCreateAccount = function (login, password, callback) {
