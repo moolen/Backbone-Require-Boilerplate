@@ -195,7 +195,7 @@ define([
            adjustSleep: function( obj ){
            
             if(obj !== undefined){
-            	if(obj.val >= 20){
+            	if(obj.val >= 20 || MyApp.bookings.termincount > 1 ){
 	            	$(obj.element).parent().siblings(".sleep").children("input").removeAttr("disabled").attr("placeholder", "Geben Sie einen Standord ein.");
             	}else{
 	            	$(obj.element).parent().siblings(".sleep").children("input").attr("disabled", "disabled").attr("placeholder","");

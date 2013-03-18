@@ -847,7 +847,37 @@ blockquote{
 		font-weight: bold;
 		font-size: 1.1em;
 	}
-	
+	.checkbox-wrap{
+		[class*="fontawesome-"]{
+			font-size: 1.2em;
+		}
+		input{
+			float: left;
+			clear: none;
+			&.cf{
+				clear: both;
+			}
+			&.smb{
+				display: block; margin-bottom: 0.3em;	
+			}
+		}
+		label{
+			float: left;
+			clear: none;
+			margin: 0;
+			padding-left: 10px;
+			line-height: 16px;
+			&.small-width{
+				width: 18%;
+			}
+			&.cf{
+				clear: both;
+			}
+			&.smb{
+				display: block; margin-bottom: 0.3em;
+			}
+		}
+	}
 	.bigger{
 		width: 65%;
 	}
@@ -1221,7 +1251,7 @@ hr{ border: 1px solid #efefef; border-top: 0;margin: 15px auto; }
 .vhd{ visibility: hidden; }
 .b{ font-weight: bold; }
 .nm{ margin: 0; }
-.smb{ margin-bottom: 0.3em; }
+.smb{ display: block; margin-bottom: 0.3em; }
 .op6{ opacity: .6; cursor: default; }
 
 /**** sizing stuff ****/

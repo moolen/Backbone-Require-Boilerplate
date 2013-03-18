@@ -57,11 +57,81 @@
 		<span class="descr">erweitert</span>
 	</button>
 	<div class="extended-info">
-		weitere Einstellungen: 
-		<ul>
-			<li>Bahn: 1./2. Klasse, ÖPNV statt Taxi, Anzahl Reisende, Bahncard</li>
-			<li>Flug: div. Fluglinien</li>
-		</ul>
+		<div class="booking-options">
+			<h4 class="nm cf smb">Reiseoptionen</h4>
+			<div class="checkbox-wrap grid-8-12 alpha cf">
+				<h6 class="nm smb" >Verkehrsmittel</h6>
+				<input type="checkbox" class="" /><label class="">Fl&uuml;ge</label>
+				<input type="checkbox" class="" /><label class="">Nur direktfl&uuml;ge</label>
+				<input type="checkbox" class="" /><label class="">Taxifahrten</label>
+			</div>
+			<div class="checkbox-wrap grid-11-12 alpha cf">
+				<h6 class="nm smb">Klassen</h6>
+				<input type="checkbox" class="" /><label class="small-width">Economy</label>
+				<input type="checkbox" class="" /><label class="small-width">Business</label>
+				<input type="checkbox" class="" /><label class="small-width">2. Klasse</label>
+				<input type="checkbox" class="" /><label class="small-width">1. Klasse</label>
+			</div>
+			<div class="checkbox-wrap grid-12-12 alpha cf">
+				<h6 class="nm smb">Hotels</h6>
+				<input type="checkbox" class="cf" />
+				<label class="smb">
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star-empty"></span>
+					<span class="fontawesome-star-empty"></span>
+					<span class="fontawesome-star-empty"></span>
+					<span class="fontawesome-star-empty"></span>
+				</label>
+				<input type="checkbox" class="cf" />
+				<label class="smb">
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star-empty"></span>
+					<span class="fontawesome-star-empty"></span>
+					<span class="fontawesome-star-empty"></span>
+				</label>
+				<input type="checkbox" class="cf" />
+				<label class="smb">
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star-empty"></span>
+					<span class="fontawesome-star-empty"></span>
+				</label>
+				<input type="checkbox" class="cf" />
+				<label class="">
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star-empty"></span>
+				</label>
+				<input type="checkbox" class="cf" />
+				<label class="">
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star"></span>
+					<span class="fontawesome-star"></span>
+				</label>
+			</div>
+			<label for="sAnzahl">Anzahl Reisende</label>
+			<select id="sAnzahl">
+				<option>1 Person</option>
+				<option>2 Personen</option>
+				<option>3 Personen</option>
+				<option>4 Personen</option>
+				<option>5 Personen</option>
+			</select>
+			<label for="sBahncard">Bahncard</label>
+			<select id="sBahncard">
+				<option>Bahncard 25 - 1.Klasse</option>
+				<option>Bahncard 25 - 2.Klasse</option>
+				<option>Bahncard 50 - 1.Klasse</option>
+				<option>Bahncard 50 - 2.Klasse</option>
+				<option>Bahncard 100</option>
+			</select>
+		</div>
 		
 	</div>
 	<button class="btn blue huge" id="goComparison">weiter<span class="fontawesome-chevron-right"></span></button>
