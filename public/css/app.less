@@ -945,6 +945,98 @@ blockquote{
 
 /**** Fahrtvergleich ****/
 
+@booking-compare-header-height: 60px;
+@booking-compare-row-height: 15px;
+
+.booking-compare-wrapper{
+	width: 100%;
+	position: relative;
+	.col-legend{
+		width: 5%;
+		position: relative;
+		border: 1px solid #aaa;
+		float: left;
+		.time-legend{
+			border-top: 1px solid #ccc;
+			margin-top: @booking-compare-header-height - 1;
+			font-size: .9em;
+			.row{ width: 100%; height: @booking-compare-row-height;text-align: center; }
+			.row:nth-child(odd){ border-bottom: 1px solid transparent }
+			.row:nth-child(odd).disabled{border-bottom: 1px solid #ddd;}
+			.row:nth-child(even){ border-bottom: 1px solid #ccc; }
+			.disabled{background: #e9f1e6;}
+		}
+		.higher{
+			position: relative;
+			top:-5px;
+			font-size:.6em;
+		}
+	}
+	.col{
+		width: 19%;
+		position: relative;
+		border: 1px solid #aaa;
+		border-left: none;
+		float: left;
+		
+		.header{
+			height: @booking-compare-header-height;
+			.gradient-top-stop-bottom-stop(#b0cca3, 15%, #b2cda2, 100%);
+			position: relative;
+			color: #333;
+			.date{ position: absolute; top: 3px; left: 3px; font-size: .8em;}
+			.day{ text-align: center; }
+		}
+		.body{
+			width: 100%;
+			position: relative;
+			.row{width: 100%; height: @booking-compare-row-height;}
+			.row:nth-child(odd){ border-bottom: 1px solid #efefef; }
+			.row:nth-child(odd).disabled{border-bottom: 1px solid #ddd;}
+			.row:nth-child(even){ border-bottom: 1px solid #ccc;  }
+			.disabled{background: #e9f1e6;}
+			.block{
+				position: absolute;
+				width: 90%;
+				left: 4.5%;
+				font-size: .8em;
+				&.blue{
+					border: 1px solid #345082;
+					.gradient-top-stop-bottom-stop(#b5c9ea, 15%, #7499df, 100%);
+				}
+				&.yellow{
+					border: 1px solid #909555;
+					.gradient-top-stop-bottom-stop(#f7ff9c, 5%, #faf366, 100%);
+				}
+				&.green{
+					border: 1px solid #4e6c48;
+					.gradient-top-stop-bottom-stop( #76d368, 15%, #69b95f, 100%);
+				}
+				&.orange{
+					border: 1px solid #8c5a35;
+					.gradient-top-stop-bottom-stop(#fdc9a2, 15%, #f69c50, 100%);
+				}
+				.description{ font-size: .85em; color: #333; padding: 2px;}
+				[class*="fontawesome-"]{ font-size: .8em; color: #666; display: inline;}
+			}			
+			// start-time position
+			.s09-50{top: 25px;}
+			.s12-15{top: 103px;}
+			.s13-00{top: 127px;}
+			.s15-05{top: 195px;}
+			.s15-50{top: 221px;}
+			
+			// end time position
+			.e12-05{bottom: 365px;}
+			.e12-45{bottom: 339px;}
+			.e15-00{bottom: 272px;}
+			.e15-35{bottom: 247px;}
+			.e19-50{bottom: 0px;}
+		}
+	}
+}
+
+/* OLD STUFF
 .booking-compare-item{
 	width: 980px;
 	position: relative;
@@ -988,7 +1080,6 @@ blockquote{
 		width: 94%;
 		height: 40px;
 	}
-	/**** colors, blocks and sizes ****/
 	.block{
 		height: 25px;
 		background: #ccc;
@@ -1141,7 +1232,7 @@ blockquote{
 	}
 
 }
-
+*/
 
 .pos-5{left: 5.2%;}
 .pos-10{left: 15.3%;}
@@ -1253,6 +1344,8 @@ hr{ border: 1px solid #efefef; border-top: 0;margin: 15px auto; }
 .nm{ margin: 0; }
 .smb{ display: block; margin-bottom: 0.3em; }
 .op6{ opacity: .6; cursor: default; }
+.nobo{ border: none;}
+.nobo-r{ border-right: none !important;  }
 
 /**** sizing stuff ****/
 
@@ -1299,3 +1392,64 @@ hr{ border: 1px solid #efefef; border-top: 0;margin: 15px auto; }
 .shift-90p{margin-left: 90%;}
 .shift-95p{margin-left: 95%;}
 .shift-100p{margin-left: 100%;}
+
+
+.box-shadow(@color, @x, @y, @blur){
+	-webkit-box-shadow:  @color @x @y @blur;
+	-moz-box-shadow:  @color @x @y @blur;
+	box-shadow:  @color @x @y @blur;
+}
+
+.box-shadow-inset(@color, @x, @y, @blur){
+	-webkit-box-shadow: inset  @color @x @y @blur;
+	-moz-box-shadow: inset  @color @x @y @blur;
+	box-shadow: inset  @color @x @y @blur;
+}
+
+.border-radius(@px){
+	-webkit-border-radius: @px;
+	-moz-border-radius:  @px;
+	border-radius: @px;
+}
+
+.transition(@prop, @duration, @easening: linear){
+	transition: @prop @duration @easening;
+	-webkit-transition: @prop @duration @easening;
+	-moz-transition: @prop @duration @easening;
+}
+
+.gradient-top-stop-bottom-stop(@top, @stop1, @bottom, @stop2){
+	// gradient from top to bottom; & 0% - 100% 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@top, endColorstr=@bottom);
+	background: -moz-linear-gradient(top,  @top @stop1, @bottom @stop2);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(@stop1,@top), color-stop(@stop2,@bottom));
+	background: -webkit-linear-gradient(top,  @top @stop1,@bottom @stop2);
+	background: -o-linear-gradient(top,  @top @stop1,@bottom @stop2);
+	background: -ms-linear-gradient(top,  @top @stop1,@bottom @stop2);
+	background: linear-gradient(to bottom,  @top @stop1,@bottom @stop2); 
+}
+
+.gradient-left-stop-right-stop(@left, @stop1, @right, @stop2){
+	// gradient from top to bottom; & 0% - 100% 
+	background: -moz-linear-gradient(left,  @left @stop1, @right @stop2);
+	background: -webkit-gradient(linear, left top, right top, color-stop(@stop1,@left), color-stop(@stop2,@right));
+	background: -webkit-linear-gradient(left,  @left @stop1,@right @stop2);
+	background: -o-linear-gradient(left,  @left @stop1,@right @stop2);
+	background: -ms-linear-gradient(left,  @left @stop1,@right @stop2);
+	background: linear-gradient(to bottom,  @left @stop1,@right @stop2); 
+}
+
+.rotate(@degrees){
+	-moz-transform:rotate(@degrees);
+	-webkit-transform:rotate(@degrees);
+	-o-transform:rotate(@degrees);
+	transform:rotate(@degrees);
+}
+
+.translate3d(@x, @y, @z){
+	-webkit-transform: translate3d(@x, @y, @z);
+    -moz-transform: translate3d(@x, @y, @z);
+    -o-transform: translate3d(@x, @y, @z);
+    -ms-transform: translate3d(@x, @y, @z);
+    transform: translate3d(@x, @y, @z);
+}

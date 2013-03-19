@@ -39,6 +39,7 @@ define([
             },
 
             render: function() {
+            	this.clearView();
 	            console.log(this.options);
 	            switch(this.options.view) {
 		            case "blog" 		: this.goBlog(); break;

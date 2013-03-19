@@ -11,7 +11,7 @@ require.config({
       // Plugins
       "backbone.validateAll": "./libs/Backbone.validateAll/src/javascripts/Backbone.validateAll",
       "text": "./libs/requirejstext/index",
-      "datepicker" : "./libs/datepicker/js/bootstrap-datepicker",
+      "datepicker" : "./libs/datepicker/index",
       
 
       // Application Folders

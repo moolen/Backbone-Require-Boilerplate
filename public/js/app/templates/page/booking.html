@@ -61,53 +61,53 @@
 			<h4 class="nm cf smb">Reiseoptionen</h4>
 			<div class="checkbox-wrap grid-8-12 alpha cf">
 				<h6 class="nm smb" >Verkehrsmittel</h6>
-				<input type="checkbox" class="" /><label class="">Fl&uuml;ge</label>
-				<input type="checkbox" class="" /><label class="">Nur direktfl&uuml;ge</label>
-				<input type="checkbox" class="" /><label class="">Taxifahrten</label>
+				<input type="checkbox" class="" checked="checked" id="vFluege" /><label for="vFluege">Fl&uuml;ge</label>
+				<input type="checkbox" class="" id="vdFluege" /><label for="vdFluege">Nur Direktfl&uuml;ge</label>
+				<input type="checkbox" class="" checked="checked" id="vTaxi" /><label for="vTaxi">Taxifahrten</label>
 			</div>
 			<div class="checkbox-wrap grid-11-12 alpha cf">
 				<h6 class="nm smb">Klassen</h6>
-				<input type="checkbox" class="" /><label class="small-width">Economy</label>
-				<input type="checkbox" class="" /><label class="small-width">Business</label>
-				<input type="checkbox" class="" /><label class="small-width">2. Klasse</label>
-				<input type="checkbox" class="" /><label class="small-width">1. Klasse</label>
+				<input type="checkbox" class="" checked="checked" id="cEco" /><label for="cEco" class="small-width">Economy</label>
+				<input type="checkbox" class="" id="cBusi" /><label for="cBusi" class="small-width">Business</label>
+				<input type="checkbox" class="" checked="checked" id="c2klass" /><label for="c2klass" class="small-width">2. Klasse</label>
+				<input type="checkbox" class="" id="c1klass"/><label for="c1klass" class="small-width">1. Klasse</label>
 			</div>
 			<div class="checkbox-wrap grid-12-12 alpha cf">
 				<h6 class="nm smb">Hotels</h6>
-				<input type="checkbox" class="cf" />
-				<label class="smb">
+				<input type="checkbox" checked="checked" id="h1s" class="cf" />
+				<label for="h1s" class="smb">
 					<span class="fontawesome-star"></span>
 					<span class="fontawesome-star-empty"></span>
 					<span class="fontawesome-star-empty"></span>
 					<span class="fontawesome-star-empty"></span>
 					<span class="fontawesome-star-empty"></span>
 				</label>
-				<input type="checkbox" class="cf" />
-				<label class="smb">
+				<input type="checkbox" checked="checked" id="h2s" class="cf" />
+				<label for="h2s" class="smb">
 					<span class="fontawesome-star"></span>
 					<span class="fontawesome-star"></span>
 					<span class="fontawesome-star-empty"></span>
 					<span class="fontawesome-star-empty"></span>
 					<span class="fontawesome-star-empty"></span>
 				</label>
-				<input type="checkbox" class="cf" />
-				<label class="smb">
+				<input id="h3s" checked="checked" type="checkbox" class="cf" />
+				<label for="h3s" class="smb">
 					<span class="fontawesome-star"></span>
 					<span class="fontawesome-star"></span>
 					<span class="fontawesome-star"></span>
 					<span class="fontawesome-star-empty"></span>
 					<span class="fontawesome-star-empty"></span>
 				</label>
-				<input type="checkbox" class="cf" />
-				<label class="">
+				<input id="h4s" checked="checked" type="checkbox" class="cf" />
+				<label for="h4s" class="smb">
 					<span class="fontawesome-star"></span>
 					<span class="fontawesome-star"></span>
 					<span class="fontawesome-star"></span>
 					<span class="fontawesome-star"></span>
 					<span class="fontawesome-star-empty"></span>
 				</label>
-				<input type="checkbox" class="cf" />
-				<label class="">
+				<input id="h5s" type="checkbox" class="cf" />
+				<label for="h5s" class="smb">
 					<span class="fontawesome-star"></span>
 					<span class="fontawesome-star"></span>
 					<span class="fontawesome-star"></span>
@@ -115,13 +115,83 @@
 					<span class="fontawesome-star"></span>
 				</label>
 			</div>
+			
 			<label for="sAnzahl">Anzahl Reisende</label>
 			<select id="sAnzahl">
 				<option>1 Person</option>
 				<option>2 Personen</option>
-				<option>3 Personen</option>
+				<option selected="selected">3 Personen</option>
 				<option>4 Personen</option>
 				<option>5 Personen</option>
+			</select>
+			<label class="">Reisende</label>
+			<select class="" id="nameSelect1">
+				<option value="1">Hans Mustermann</option>
+				<option value="2">Eva Schwarz</option>
+				<option value="3">Tobias Meier</option>
+				<option value="4">Peter Geier</option>
+				<option value="5">Jonas Schmand</option>
+				<option value="6">Kristina H. Chung</option>
+				<option value="7">Paige H. Chen</option>
+				<option value="8" selected="selected">Sherri E. Melton</option>
+				<option value="9">Patrick O. Song</option>
+				<option value="10">Elsie A. Hamilton</option>
+				<option value="11">Hazel E. Bender</option>
+				<option value="12">Malcolm A. Wagner</option>
+				<option value="13">Dolores C. McLaughlin</option>
+				<option value="14">Francis C. McNamara</option>
+				<option value="15">Sandy A. Raynor</option>
+				<option value="16">Marion O. Moon</option>
+				<option value="17">Beth O. Woodard</option>
+				<option value="18">Julia E. Desai</option>
+				<option value="19">Jean R. Griffin</option>
+				<option value="20">Brett A. Lamb</option>
+			</select>
+			<label></label>
+			<select class="" id="nameSelect2">
+				<option value="1">Hans Mustermann</option>
+				<option value="2">Eva Schwarz</option>
+				<option value="3" >Tobias Meier</option>
+				<option value="4">Peter Geier</option>
+				<option value="5">Jonas Schmand</option>
+				<option value="6">Kristina H. Chung</option>
+				<option value="7">Paige H. Chen</option>
+				<option value="8">Sherri E. Melton</option>
+				<option value="9">Patrick O. Song</option>
+				<option value="10">Elsie A. Hamilton</option>
+				<option value="11">Hazel E. Bender</option>
+				<option value="12" selected="selected">Malcolm A. Wagner</option>
+				<option value="13">Dolores C. McLaughlin</option>
+				<option value="14">Francis C. McNamara</option>
+				<option value="15">Sandy A. Raynor</option>
+				<option value="16">Marion O. Moon</option>
+				<option value="17">Beth O. Woodard</option>
+				<option value="18">Julia E. Desai</option>
+				<option value="19">Jean R. Griffin</option>
+				<option value="20">Brett A. Lamb</option>
+			</select>
+			<label></label>
+			<select class="" id="nameSelect3">
+				<option value="1">Hans Mustermann</option>
+				<option value="2">Eva Schwarz</option>
+				<option value="3" selected="selected">Tobias Meier</option>
+				<option value="4">Peter Geier</option>
+				<option value="5">Jonas Schmand</option>
+				<option value="6">Kristina H. Chung</option>
+				<option value="7">Paige H. Chen</option>
+				<option value="8">Sherri E. Melton</option>
+				<option value="9">Patrick O. Song</option>
+				<option value="10">Elsie A. Hamilton</option>
+				<option value="11">Hazel E. Bender</option>
+				<option value="12">Malcolm A. Wagner</option>
+				<option value="13">Dolores C. McLaughlin</option>
+				<option value="14">Francis C. McNamara</option>
+				<option value="15">Sandy A. Raynor</option>
+				<option value="16">Marion O. Moon</option>
+				<option value="17">Beth O. Woodard</option>
+				<option value="18">Julia E. Desai</option>
+				<option value="19">Jean R. Griffin</option>
+				<option value="20">Brett A. Lamb</option>
 			</select>
 			<label for="sBahncard">Bahncard</label>
 			<select id="sBahncard">
@@ -131,7 +201,7 @@
 				<option>Bahncard 50 - 2.Klasse</option>
 				<option>Bahncard 100</option>
 			</select>
+			<div class="cf"></div>
 		</div>
-		
 	</div>
 	<button class="btn blue huge" id="goComparison">weiter<span class="fontawesome-chevron-right"></span></button>

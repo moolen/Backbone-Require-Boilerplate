@@ -20,6 +20,7 @@ define([
                 "click input" : "onInputClick",
                 "change .termin_change" : "onTerminChange",
                 "change #inputStart" : "onInputStartChange",
+                "change .googleautocomplete" : "onAutocompleteChange",
                 "click .deleteTermin" : "deleteTermin",
                 "click #goComparison" : "goComparison",
                 "click #goBooking" : "goBooking",
@@ -95,6 +96,9 @@ define([
                     if(e.currentTarget.id == 'inputStart'){
                       this.onInputStartChange(e);
                     }     
+                    if($(e.currentTarget).hasClass('googleautocomplete')){
+	                    this.onAutocompleteChange(e);
+                    }
                     e.preventDefault();
                     return false;
                   }
@@ -140,13 +144,15 @@ define([
                     var options = {
                       types: ['geocode']
                     };
-                    var input = $(".googleautocomplete").each(function(){
-                        if(this != undefined){
-                             var autocomplete = new google.maps.places.Autocomplete(this, options);
-                        }
-                    });
+                    
+                    
+                    
                     setTimeout(function(){
-                      //$('.sleep input').removeAttr('placeholder');
+	                    var input = $(".googleautocomplete").each(function(){
+	                        if(this != undefined){
+	                             var autocomplete = new google.maps.places.Autocomplete(this, options);
+	                        }
+	                    });
                     }, 200);
                     
             },
@@ -173,7 +179,6 @@ define([
             });
             
             // init slider
-            console.log($(".slider-range"));
             $( ".slider-range" ).slider({
                   range: true,
                   min: 0,
@@ -193,18 +198,29 @@ define([
            },
            
            adjustSleep: function( obj ){
-           
-            if(obj !== undefined){
+           		var obj = obj || {};
             	if(obj.val >= 20 || MyApp.bookings.termincount > 1 ){
 	            	$(obj.element).parent().siblings(".sleep").children("input").removeAttr("disabled").attr("placeholder", "Geben Sie einen Standord ein.");
             	}else{
 	            	$(obj.element).parent().siblings(".sleep").children("input").attr("disabled", "disabled").attr("placeholder","");
             	}
-            }
             
             if( MyApp.bookings.termincount >= 2 ){
               $('.sleep input').removeAttr('disabled');
             }
+            
+            
+           },
+           
+           onAutocompleteChange: function(e) {
+	           var t = $(e.currentTarget)[0],
+	           	   l = $('.sleep input').last()[0];
+	           if( t == l ){
+	           		setTimeout(function(){
+		           		$('#InputEnd')[0].value =  $(e.currentTarget)[0].value;
+	           		}, 200);
+		           
+	           }
            },
 
            initCompareSlider: function(){
