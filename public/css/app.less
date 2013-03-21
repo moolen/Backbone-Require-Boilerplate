@@ -307,6 +307,7 @@ label {
 	display: inline;
 	height: auto;
 	margin: 0.5em 0 0.8em 2px;
+	cursor: pointer;
 	color:#2b2b2b;
 	font-size:1.4em;
 	line-height: 1.3em;
@@ -943,12 +944,97 @@ blockquote{
 	}
 }
 
+/**** Fahrtvergleich Übersicht ****/
+
+.goFinishBooking{
+	position: relative;
+	top: 10px;
+}
+
+.low-price, .usable-time, .travel-time{
+	clear: both;
+	margin-top: 10px;
+	padding-top: 25px;
+}
+
+.block-wrapper{
+	width: 80%;
+	height: 60px;
+	border: 1px solid #ddd;
+	position: relative;
+	cursor: pointer;
+	transition: background .3s;
+	-webkit-transition: background .3s;
+	-moz-transition: background .3s;
+	.fontawesome-chevron-down{
+		position: absolute;
+		right: -5px;
+		top: 24%;
+		font-size: 1.6em;
+	}
+	&:hover{
+		background: #fcfcfc;
+	}
+	.block{
+		font-size: .8em;
+		float: left;
+		margin:5px 10px;
+		position: relative;
+		top: 50%;
+		margin-top: -20px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		overflow: hidden;
+		&.blue{
+			border: 1px solid #345082;
+			.gradient-left-stop-right-stop(#b5c9ea, 15%, #7499df, 100%);
+		}
+		&.yellow{
+			border: 1px solid #909555;
+			.gradient-left-stop-right-stop(#f7ff9c, 5%, #faf366, 100%);
+		}
+		&.green{
+			border: 1px solid #4e6c48;
+			.gradient-left-stop-right-stop( #76d368, 15%, #69b95f, 100%);
+		}
+		&.orange{
+			border: 1px solid #8c5a35;
+			.gradient-left-stop-right-stop(#fdc9a2, 15%, #f69c50, 100%);
+		}
+		&.lila{
+			border: 1px solid #4a347d;
+			.gradient-left-stop-right-stop(#cbb7ec, 15%, #947ad5, 100%);
+		}
+		.description{ font-size: .85em; color: #333; padding: 2px;}
+		[class*="fontawesome-"]{ font-size: .8em; color: #666; display: inline;}
+
+		&.w-5p{ width: 5%;}
+		&.w-7p{ width: 7%;}
+		&.w-10p{ width: 10%;}
+		&.w-15p{ width: 15%;}
+		&.w-20p{ width: 20%;}
+		&.w-25p{ width: 25%;}
+		&.w-29p{ width: 29%;}
+		&.w-30p{ width: 30%;}
+		&.w-35p{ width: 35%;}
+		&.w-40p{ width: 40%;}
+		&.w-45p{ width: 45%;}
+		&.w-50p{ width: 50%;}
+		&.w-55p{ width: 55%;}
+		&.w-60p{ width: 60%;}
+		&.w-65p{ width: 65%;}
+		
+	}	
+}
+
 /**** Fahrtvergleich ****/
 
 @booking-compare-header-height: 60px;
 @booking-compare-row-height: 15px;
 
 .booking-compare-wrapper{
+	display: none;
 	width: 100%;
 	position: relative;
 	.col-legend{
@@ -990,6 +1076,7 @@ blockquote{
 		.body{
 			width: 100%;
 			position: relative;
+			overflow: hidden;
 			.row{width: 100%; height: @booking-compare-row-height;}
 			.row:nth-child(odd){ border-bottom: 1px solid #efefef; }
 			.row:nth-child(odd).disabled{border-bottom: 1px solid #ddd;}
@@ -1016,23 +1103,43 @@ blockquote{
 					border: 1px solid #8c5a35;
 					.gradient-top-stop-bottom-stop(#fdc9a2, 15%, #f69c50, 100%);
 				}
+				&.lila{
+					border: 1px solid #4a347d;
+					.gradient-top-stop-bottom-stop(#cbb7ec, 15%, #947ad5, 100%);
+				}
 				.description{ font-size: .85em; color: #333; padding: 2px;}
 				[class*="fontawesome-"]{ font-size: .8em; color: #666; display: inline;}
 			}			
+			
 			// start-time position
-			.s09-50{top: 25px;}
-			.s12-15{top: 103px;}
-			.s13-00{top: 127px;}
-			.s15-05{top: 195px;}
-			.s15-50{top: 221px;}
+			.s-start{ top: -1px;padding-top:5px;}
+			.s09-35{top: 111px;}
+			.s09-50{top: 125px;}
+			.s10-00{top: 127px}
+			.s12-15{top: 203px;}
+			.s13-00{top: 227px;}
+			.s13-05{top: 227px;}
+			.s15-00{top: 287px;}
+			.s15-05{top: 295px;}
+			.s15-50{top: 321px;}
+			.s20-05{top: 449px;}
+			.s20-30{top:468px;}
 			
 			// end time position
+			.e09-30{bottom: 450px;}
+			.e09-45{bottom: 440px;}
+			.e09-55{bottom: 433px;}
 			.e12-05{bottom: 365px;}
 			.e12-45{bottom: 339px;}
+			.e13-00{bottom: 337px;}
+			.e14-00{bottom: 304px;}
 			.e15-00{bottom: 272px;}
 			.e15-35{bottom: 247px;}
-			.e19-50{bottom: 0px;}
-		}
+			.e16-15{bottom: 230px;}
+			.e19-50{bottom: 115px;}
+			.e20-20{bottom: 95px;}
+			.e-end{bottom: -1px;}
+		}	
 	}
 }
 

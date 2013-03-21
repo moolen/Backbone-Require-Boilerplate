@@ -33,7 +33,8 @@ define([
                 "click #confirmBooking" : "confirmBooking",
                 "click .fontawesome-remove" : "closeModal",
                 "click .modalbg" : "closeModal",
-                "click #goDashboard" : "goDashboard"
+                "click #goDashboard" : "goDashboard",
+                "click .block-wrapper" : "showBookingCompareDetails"
             },
             initialize: function() {
             	console.log("initializing bookingView");
@@ -131,12 +132,14 @@ define([
            },
             
            onTerminChange : function(e){
+           	if(MyApp.bookings.termincount > 1){
                setTimeout(function(){
                     var value = e.currentTarget.value,
                     	element = $(e.currentTarget).parent().parent().children(".sleep").children("input")[0];
                     element.value = value;
                     $(element).removeClass("error");
                }, 200);
+            }
            },
 
            initAutocomplete: function(){
@@ -423,6 +426,19 @@ define([
            
            confirmBooking: function(){
 	           this.openModal(finishedBooking);
+           },
+           
+           showBookingCompareDetails: function(e){
+           		var $target = $(e.currentTarget).siblings(".booking-compare-wrapper");
+           		console.log($target);
+           		if(!$target.hasClass('shown')){
+	           		$target.slideDown(800);
+	           		$target.addClass('shown');
+           		}else{
+	           		$target.slideUp(800);
+	           		$target.removeClass('shown');
+           		}
+           		
            },
            
            slideWindowTo: function($element, time, additionalOffset){
