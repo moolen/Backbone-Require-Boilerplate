@@ -11,6 +11,7 @@ define([
 
             initialize: function() {
 	            console.log("initializing dashboardView")
+	            $("#godashboard").addClass("active");
                 this.render();
             },
 

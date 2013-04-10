@@ -1,11 +1,12 @@
 define([
 		"jquery", 
+		"underscore",
 		"backbone", 
 		"models/model", 
 		"views/app",
 		"collections/Collection"
 	],
-    function($, Backbone, Model, App, Collection) {
+    function($, _, Backbone, Model, App, Collection) {
 
         var Router = Backbone.Router.extend({
 
@@ -26,8 +27,18 @@ define([
 	            		console.log("router:goDashboard")
 		            	Backbone.Events.trigger("goDashboard");
 	            	}else{
-		            	// case: go to view defined in hash
-		            	Backbone.Events.trigger("go" + MyApp.currentView);
+		            	
+		            	if( _.has(Backbone.Events._events, ("go" + MyApp.currentView)) ) {
+		            		// case: go to view
+			            	Backbone.Events.trigger("go" + MyApp.currentView);
+		            	}else{
+		            		console.log("no hash recognized");
+			            	// hashbang has NO event!
+			            	window.location.hash = "#dashboard";
+			            	// does: Backbone.Events.trigger("goDashboard");
+		            	}
+		            	
+		            	
 	            	}
 	            }else{
 	            	console.log("##### NEW APP INSTANCE #####");

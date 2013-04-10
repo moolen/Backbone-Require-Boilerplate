@@ -39,6 +39,7 @@ define([
             initialize: function() {
             	console.log("initializing bookingView");
                 MyApp.bookings.termincount = 1;
+                $("#gobooking").addClass("active");
             	this.render();
                 this.initForm();
             },
