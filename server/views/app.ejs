@@ -62,6 +62,7 @@
 	 	MyApp.baseUrl = "<%= appUrl %>";
 	 	MyApp.bookings = { termincount: null };
 	 <%	if(env == "production"){%>
+	 	 var console = {};
 		 console.log = function() {};
 	 <% } %> 
 	 </script>

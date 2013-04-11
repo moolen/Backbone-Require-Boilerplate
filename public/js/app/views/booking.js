@@ -53,7 +53,7 @@ define([
                 $(".viewport-wrapper").show();
                 $(".content-box").hide();
                 $(".top-nav .left a").removeClass("active");
-                $(".arrow-top").attr("class", "arrow-top booking");
+                $(".viewport-wrapper .arrow-top").attr("class", "arrow-top booking");
                 
                 return this;
             },

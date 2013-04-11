@@ -25,7 +25,7 @@ define([
                 this.template = _.template(template, {});
                 this.$el.find('.viewport').html(this.template);
                 this.$el.find(".viewport-wrapper").show();
-                this.$el.find(".arrow-top").attr("class", "arrow-top dashboard");
+                this.$el.find(".viewport-wrapper .arrow-top").attr("class", "arrow-top dashboard");
                 return this;
 
             },
