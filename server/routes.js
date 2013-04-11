@@ -117,9 +117,10 @@ module.exports = function(app, dao) {
     *
     *	404 
     *
-    **********/
+    *********
     
 	app.get('*', function(req, res){
 	  res.render('404', { layout : false });
 	});
+	*/
 }
