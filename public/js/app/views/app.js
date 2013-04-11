@@ -39,6 +39,8 @@ define([
             events: {
             	"click #LoginButton" : "goLogin",
             	"click #signInBtn" : "signIn",
+            	"click #LogOutBtn" : "LogOut",
+            	"keypress input" : "bubbleEnter",
             	//"click #goinbox" : "goInbox",
             	//"click #NavGoBlog" : "goBlog",
             	//"click #NavGoApi" : "goApi",
@@ -85,6 +87,7 @@ define([
             
             goLogin : function(e) {
             	e ? e.preventDefault() : null;
+            	console.log("goLogin event");
             	$btn =  $("#LoginButton");
             	if( $btn.hasClass("active") ){
             		// is already open!
@@ -191,23 +194,60 @@ define([
             },
             
             signIn : function(e) {
-            	console.log(e);
 	            e ? e.preventDefault() : null;
-	            var username = $('input[name="userName"]').val();
-	            if( username != "" ){
+	            var $u = $('input[name="userName"]');
+	            var $p = $('input[name="password"]');
+	            var username = $u.val();
+	            var password = $p.val();
+	            
+	            if( username && password ){
 		            this.user.set({ username : username });
 		            Backbone.Events.trigger( 'closeLoginView' );
+		            $("#LoginButton").removeClass("active");
+	            }else{
+		            if(!username){
+			            $u.addClass("error");
+		            }
+		            if(!password){
+			            $p.addClass("error");
+		            }
 	            }
-	            console.log(this.user);
+	            
+            },
+            
+            LogOut : function(e) {
+	            e ? e.preventDefault() : null;
+	            $("#LogOutBtn").remove();
+	            $(".top-nav .right .vertical.divider:last").remove();
+	            $("#LoginButton").html("Sign In").removeClass("isLoggedIn");
+	            this.user.set({ username : "" });
 	            
             },
             
             changeUserName : function(username) {
 	            console.log("Model:username: " + username);
-	            $("#LoginButton").addClass("isLoggedIn");
-	            $("#LoginButton").html("Hello " + username);
-	            $(".top-nav .right").append("<span class='vertical divider'></span>");
-	            $(".top-nav .right").append('<span class="fr link" id="LogOutBtn" href="#">Log Out</span>');
+	            if( username ){
+	            	var greeting = ['Hello, ','Hi, ', 'Welcome, ', 'Hey, ', 'Hej, '];
+	            	var MrRando = Math.floor(Math.random() * 3) + 0;
+		            $("#LoginButton").addClass("isLoggedIn");
+		            $("#LoginButton").html(greeting[ MrRando ] + username);
+		            $(".top-nav .right").append("<span class='vertical divider'></span>");
+		            $(".top-nav .right").append('<span class="fr link" id="LogOutBtn" href="#">Log Out</span>');
+	            }	            
+            },
+            
+            bubbleEnter : function(e) {
+            	// enter pressed?
+	            if (e.keyCode == 13) {
+	           		
+	           		console.log(e.currentTarget);
+		            $iName = $(e.currentTarget).attr("name");
+		            
+	           		if($iName == "userName" || $iName == "password"){
+		           		this.signIn();
+	           		}
+			        return false;
+			    }
             },
             
             close: function() {
