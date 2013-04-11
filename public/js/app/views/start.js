@@ -20,16 +20,7 @@ define([
 
                 this.template = _.template(template, {});
                 this.$el.html(this.template);
-                $(".content-box").show();
                 
-                // set navi active-class
-                $('#header .left a').removeClass('active');
-                $('#NavGoHome').addClass('active');
-                
-                // render nextBtn
-                if( $('#nextBtn').length == "" ){
-	                 $('.viewport').append('<button class="btn nextBtn" id="nextBtn">goForward</button>');
-                }
                 return this;
 
             },
